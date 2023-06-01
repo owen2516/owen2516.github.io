@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* ------------------------reset-------------------- */
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        /* ------------------------tools-------------------- */
+        .bg-black{
+            background-color: #272626;
+        }
+        .bg-white {
+            background-color: white;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .d-flex {
+            display: flex;
+        }
+        .jc-space-between{
+            justify-content: space-between;
+        }
+        .jc-center {
+            justify-content: center;
+        }
+        .ai-center{
+            align-items: center;
+        }
+        .mx-auto{
+           margin: auto;;
+        }
+        .border1{
+            border: green 3px solid;
+        }
+        .header-fixed {
+            position: sticky;
+            top: 0;
+            display: block;
+            width: 100%;
+            height: 100px;
+        }
+        .header {
+            height: 100px; 
+        }
+        .donate-btn{
+            border: solid 2px #ff9933;
+            color: #ff9933;
+            padding: 20px;
+            background-color: #ffffff;
+            transition: .3s;
+            cursor: pointer;
+        }
+        .donate-btn:hover{
+            border: solid 2px #7abee9;
+            color: #ffffff;
+            background-color: #7abee9;
+        }
+        .donate-btn2{
+            border: solid 3px transparent;
+            color: #ffffff;
+            padding: 25px 60px;
+            background-color: #ff9933;
+            transition: .3s;
+            cursor: pointer;
+            margin-top:50px ;
+        }
+        .donate-btn2:hover {
+            background-color: #000;
+        }
+        .m-0 {
+            margin: 0;
+        }
+        /* ------------------------text-------------------- */
+        .text-center{
+            text-align: center;
+        }
+        .text-1 {
+            font-weight: 300;
+            font-style: normal;
+            font-family: sans-serif;
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 1.5;
+            letter-spacing: 0px;
+        }
+        .text-1 a {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .text-1 a:hover {
+            color: #ff9933;
+        }
+        .text-3 {
+            font-size: 20px;
+            transition: .3s;
+            color: #000;
+            height: 50px;
+            border-bottom: solid 3px transparent;
+        }
+        .text-3:hover{
+            border-bottom: solid 3px #ff9933;
+        }
+        .text-2 {
+            font-weight: 700;
+            font-family: serif;
+            color: #535353;
+            font-size: 50px;
+            letter-spacing: 0px;
+        }
+        .text-4 {
+            font-weight: 700;
+            font-style: normal;
+            font-family: 'Lato', sans-serif;
+            color: #7abee9;
+            font-size: 80px;
+            line-height: 1.1;
+            letter-spacing: 0px;
+        }
+        .text-5 {
+            font-weight: 400;
+            font-style: normal;
+            font-family: 'Lato', sans-serif;
+            color: #535353;
+            font-size: 24px;
+            line-height: 1.2;
+            letter-spacing: 0px;
+        }
+        .text-6{
+            font-weight: 400;
+            font-style: normal;
+            font-family: 'Lato', sans-serif;
+            color: #7abee9;
+            font-size: 30px;
+            line-height: 1.5;
+            letter-spacing: 0px;
+        }
+        .text-7 {
+            color: #8d8d8d;
+        }
+        .text-8 {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%,0);
+            color: #ffffff;
+            font-weight: 400;
+            font-style: normal;
+            font-family: sans-serif;
+            font-size: 34px;
+            line-height: 1.5;
+            letter-spacing: 0px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .text-8:hover {
+            color: #ff9933;
+        }
+        .article-div{
+            width: 100%;
+            height: 80vh;            
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .section-div{
+            padding-left:15px ;
+        }
+        .left-section{            
+            width: 50%;
+        }
+        .left-section>img {
+            width: 100%;
+            height: auto;
+        }
+        .right-section{
+            width: 50%;
+        }
+        .card {
+            width: 370px;
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+        }
+        .card>img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .card>div {
+            position: absolute;
+            top: 0;
+            height: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .card>div:hover{
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .fa-phone{
+            color: #ff9933;
+        }
+        .icons {
+            background-color: #ffffff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 2px;
+            transition: .3s;
+        }
+        .icons:hover {
+            background-color: #ff9933;
+        }
+        .fa-brands {
+            color: #272626;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black" style="height: 60px;">
+        <div class="container d-flex mx-auto jc-space-between ai-center">
+            <div class="d-flex ai-center">
+                <i class="fa-solid fa-phone"></i>
+                <p class="text-1">Toll-free:<a>(123) 456-7890</a></p>
+            </div>
+            <div class="d-flex ai-center">
+                <a class="icons d-flex ai-center jc-center" href="#">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a class="icons d-flex ai-center jc-center"  href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a class="icons d-flex ai-center jc-center"  href="#">
+                    <i class="fa-brands fa-pinterest"></i>
+                </a>
+                <a class="icons d-flex ai-center jc-center"  href="#">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <header class="bg-white header-fixed">
+        <div class="header container d-flex jc-space-between ai-center mx-auto">
+            <div class="d-flex ai-center">
+                <a href="#">
+                    <img src="./images/asset 0.png">
+                </a>
+                <a href="#" style="margin-left:10px;">
+                    <p class="text-2">Anilove</p>
+                </a>                
+            </div>
+            <div style="width: 500px;" class="d-flex jc-space-between ai-center">
+                <a class="text-3" href="#">
+                    <p>Home</p>
+                </a>
+                <a class="text-3" href="#">
+                    <p>About</p>
+                </a>
+                <a class="text-3" href="#">
+                    <p>Events</p>
+                </a>
+                <a class="text-3" href="#">
+                    <p>News</p>
+                </a>
+                <a class="text-3" href="#">
+                    <p>Contacts</p>
+                </a>
+            </div>
+            <button class="donate-btn">DONATE NOW!</button>
+        </div>
+    </header>
+    <div class="article-div" style="background-image: url(./images/asset\ 4.jpeg);">
+        <div class="container mx-auto section-div">
+            <div style="padding-top:200px ;">
+                <p class="text-2 m-0">
+                    Animals Need
+                </p>
+                <p class="text-4 m-0">
+                    YOUR Help!
+                </p>
+                <p class="text-5 m-0">
+                    You can chip in with money & effort!
+                </p>
+                <button class="donate-btn2">
+                    DONATE NOW!
+                </button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px;"></div>
+    <div class="article-div">
+        <div class="d-flex container mx-auto section-div">
+            <div class="left-section">
+                <img src="./images/asset 1.jpeg" alt="">
+            </div>
+            <div class="right-section" style="padding-top:100px ;">
+                <p class="text-2 m-0">
+                    About Us
+                </p>
+                <p class="text-6">
+                    What Makes Us Care About Pets?
+                </p>
+                <p class="text-7">
+                    If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, surrounded by domestic animals and pets all the time till she went to college – there might have been no Anilove animal shelter now. So as soon as she graduated with her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
+                </p>
+                <p class="text-7">
+                    All in all, with thousands of animals saved off the streets and cared for every year, we hope to encourage much more pet adoptions to happen!
+                </p>
+                <button class="donate-btn2">
+                    LEARN MORE
+                </button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px; background-color: #f9f9f9;"></div>
+    <div class="article-div" style="background-color: #f9f9f9;">
+        <div class="">
+            <p class="text-2 m-0 text-center">
+                How You Can Help
+            </p>
+            <p class="text-6 m-0 text-center">
+                There Are Countless Ways You Can Join In & Help Us!
+            </p>
+        </div>
+        <div class="d-flex ai-center jc-space-between container mx-auto" style="margin-top: 50px;">
+            <div class="card">
+                <img src="./images/asset 5.jpeg" alt="">
+                <div class="ovl-dark"></div>
+                <p class="text-8">Volunteer</p>
+            </div>
+            <div class="card">
+                <img src="./images/asset 6.jpeg" alt="">
+                <div class="ovl-dark"></div>
+                <p class="text-8">Adopt</p>
+            </div>
+            <div class="card">
+                <img src="./images/asset 7.jpeg" alt="">
+                <div class="ovl-dark"></div>
+                <p class="text-8">Sponsor</p>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px; background-color: #f9f9f9;"></div>
+</body>
+</html>
