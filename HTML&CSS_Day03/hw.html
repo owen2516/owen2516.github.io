@@ -15,13 +15,14 @@
 
         .container {
             max-width: 960px;
-            margin: 80px auto;
+            margin: 150px auto;
             position: relative;
         }
 
         .title {
             width: 355px;
-            position: relative;
+            position: absolute;
+            top: -100px;
             z-index: 3;
         }
 
@@ -60,8 +61,7 @@
         }
 
         .media {
-            position: absolute;
-            top: 100px;
+            position: relative;
             left: 190px;
             width: 705px;
             z-index: 2;
@@ -98,13 +98,9 @@
             height: 290px;
             background-color: #eee;
             position: absolute;
-            top: 30px;
+            top: -70px;
             right: 0;
             z-index: 1;
-        }
-
-        .empty-block {
-            height: 175px;
         }
 
         .content {
@@ -112,6 +108,7 @@
             width: 682px;
             padding: 15px 30px;
             position: relative;
+            top: -30px;
             left: 50px;
             z-index: 3;
         }
@@ -186,8 +183,15 @@
 </head>
 
 <body>
-    <div class="container mx-auto">
-        <div class="title">
+    <article class="container mx-auto">
+        <section class="media">
+            <a href="#">
+                <span>
+                    <img src="./images/10040.png" alt="">
+                </span>
+            </a>
+        </section>
+        <section class="title">
             <div class="title-caption">
                 <span>01</span>
                 <h2>操控樂趣</h2>
@@ -198,17 +202,9 @@
                     透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持 車身平穩·帶給駕駛更靈敏的道路 反饋，享受隨心馳騁的行駛快感·
                 </p>
             </div>
-        </div>
-        <div class="media">
-            <a href="#">
-                <span>
-                    <img src="./images/10040.png" alt="">
-                </span>
-            </a>
-        </div>
+        </section>
         <div class="color-block"></div>
-        <div class="empty-block"></div>
-        <div class="content">
+        <section class="content">
             <div>
                 <span>因為我們做了這些革新</span>
                 <hr>
@@ -219,10 +215,17 @@
             <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加 焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
             <h3>四輪獨立懸吊</h3>
             <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向 靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
-        </div>
-    </div>
-    <div class="container mx-auto">
-        <div class="title">
+        </section>
+    </article>
+    <article class="container mx-auto">
+        <section class="media">
+            <a href="#">
+                <span>
+                    <img src="./images/10040.png" alt="">
+                </span>
+            </a>
+        </section>
+        <section class="title">
             <div class="title-caption">
                 <span>02</span>
                 <h2>安全守護</h2>
@@ -233,17 +236,9 @@
                     您的愛車會妥善保護您,強悍穩固 的車身可使您安全無虞。世界級的 安全功能讓您輕鬆自如享受旅程、 毫無後顧之憂。
                 </p>
             </div>
-        </div>
-        <div class="media">
-            <a href="#">
-                <span>
-                    <img src="./images/10040.png" alt="">
-                </span>
-            </a>
-        </div>
+        </section>
         <div class="color-block"></div>
-        <div class="empty-block"></div>
-        <div class="content">
+        <section class="content">
             <div>
                 <span>因為我們做了這些革新</span>
                 <hr>
@@ -252,10 +247,17 @@
             <p>以先進的TSS系統 ,主動偵測路況,輔助駕駛判斷路況並維持行車安全。</p>
             <h3>被動安全</h3>
             <p>堅固的高剛性車體,使用熱沖壓材料的高強度抗扭鋼板,強化座艙對意外事故的保護力。</p>
-        </div>
-    </div>
-    <div class="container mx-auto">
-        <div class="title">
+        </section>
+    </article>
+    <article class="container mx-auto">
+        <section class="media">
+            <a href="#">
+                <span>
+                    <img src="./images/10040.png" alt="">
+                </span>
+            </a>
+        </section>
+        <section class="title">
             <div class="title-caption">
                 <span>03</span>
                 <h2>乘坐舒適</h2>
@@ -266,17 +268,9 @@
                     車室空間設計著重人體工學,透過 方向盤、踏板等位置優化,追求更 舒適的駕駛位置,並以新型座椅設 計,提高座椅包覆性,致力實現長 途駕駛不疲勞的舒適駕馭體驗。
                 </p>
             </div>
-        </div>
-        <div class="media">
-            <a href="#">
-                <span>
-                    <img src="./images/10040.png" alt="">
-                </span>
-            </a>
-        </div>
+        </section>
         <div class="color-block"></div>
-        <div class="empty-block"></div>
-        <div class="content">
+        <section class="content">
             <div>
                 <span>因為我們做了這些革新</span>
                 <hr>
@@ -287,10 +281,17 @@
             <p>考量駕駛坐進車內的高度,透過前擋風玻璃位置的調整,達到盲區極小化,使駕駛視野 更開闊,同步提升駕馭安全。</p>
             <h3>更寧靜的車室</h3>
             <p>採用最新三層結構的隔音材料,與引擎、變速箱的零件改革,將座艙的震動抑制在最小 限度,提供乘客舒適安靜的感受。</p>
-        </div>
-    </div>
-    <div class="container mx-auto">
-        <div class="title">
+        </section>
+    </article>
+    <article class="container mx-auto">
+        <section class="media">
+            <a href="#">
+                <span>
+                    <img src="./images/10040.png" alt="">
+                </span>
+            </a>
+        </section>
+        <section class="title">
             <div class="title-caption">
                 <span>04</span>
                 <h2>以人為本</h2>
@@ -301,17 +302,9 @@
                     藉由高度人性化的介面整合、傳遞 車輛資訊、豐富日常駕駛體驗、 從提升油耗表現到行李廂空間最適 化、均細心考量、更加貼近使用者 真正所需與習慣,並給予即時回應
                 </p>
             </div>
-        </div>
-        <div class="media">
-            <a href="#">
-                <span>
-                    <img src="./images/10040.png" alt="">
-                </span>
-            </a>
-        </div>
+        </section>
         <div class="color-block"></div>
-        <div class="empty-block"></div>
-        <div class="content">
+        <section class="content">
             <div>
                 <span>因為我們做了這些革新</span>
                 <hr>
@@ -320,10 +313,17 @@
             <p>以 Corolla Sport為例,更強勁的高效引擎將熱效率提升至40%,達到世界級水準, 屢屢突破燃油效率新境界</p>
             <h3>行李箱空間最適化</h3>
             <p>以第四代 Prius為例,透過將電池位置移到後座下方,讓行李箱擁有更大的空間。</p>            
-        </div>
-    </div>
-    <div class="container mx-auto">
-        <div class="title">
+        </section>
+    </article>
+    <article class="container mx-auto">
+        <section class="media">
+            <a href="#">
+                <span>
+                    <img src="./images/10040.png" alt="">
+                </span>
+            </a>
+        </section>
+        <section class="title">
             <div class="title-caption">
                 <span>05</span>
                 <h2>引以為傲</h2>
@@ -334,17 +334,9 @@
                     TNGA 車款擁有讓人忍不住回頭的 新潮外觀、讓駕駛充滿自信的駕馭 快感!不僅讓車主能展現個人風格, 也能讓擁有者都能引以為傲。
                 </p>
             </div>
-        </div>
-        <div class="media">
-            <a href="#">
-                <span>
-                    <img src="./images/10040.png" alt="">
-                </span>
-            </a>
-        </div>
+        </section>
         <div class="color-block"></div>
-        <div class="empty-block"></div>
-        <div class="content">
+        <section class="content">
             <div>
                 <span>因為我們做了這些革新</span>
                 <hr>
@@ -353,8 +345,8 @@
             <p>TNGA低重心設計 ,不僅呈現更低伏的運動化外觀, 更講究高品質內裝的一致性 。</p>
             <h3>環保概念</h3>
             <p>為了對環境保護盡 一份心力 ,我們全面提升傳統引擎、變速箱與油電複合動力的動力</p>            
-        </div>
-    </div>
+        </section>
+    </article>
 </body>
 
 </html>
