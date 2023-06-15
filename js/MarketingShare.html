@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <canvas id="mkShare" width="500" height="100"></canvas>
+    <table class="table table-bordered table-striped">
+        <!-- <thead>
+            <tr>
+                <th>排名</th>
+                <th>公司名稱</th>
+                <th>國別</th>
+                <th>市佔率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>台積電</td>
+                <td>台灣</td>
+                <td>53.1%</td>
+            </tr>
+        </tbody> -->
+    </table>
+    <!-- bootstrap.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        // const marketingShare = [
+        //     { Ranking: 1, Company: "台積電", Country: "台灣", Ratio: "53.1" },
+        //     { Ranking: 2, Company: "三星電子", Country: "韓國", Ratio: "17.3" },
+        //     { Ranking: 3, Company: "聯電", Country: "台灣", Ratio: "7.2" },
+        //     { Ranking: 4, Company: "格羅方德", Country: "美國", Ratio: "6.1" },
+        //     { Ranking: 5, Company: "中芯國際", Country: "中國", Ratio: "5.3" },
+        //     { Ranking: 6, Company: "華虹半導體", Country: "中國", Ratio: "2.6" },
+        //     { Ranking: 7, Company: "力積電", Country: "台灣", Ratio: "1.8" },
+        //     { Ranking: 8, Company: "世界先進", Country: "台灣", Ratio: "1.4" },
+        //     { Ranking: 9, Company: "高塔半導體", Country: "以色列", Ratio: "1.4" },
+        //     { Ranking: 10, Company: "東部高科", Country: "南韓", Ratio: "1" }
+        // ];
+
+        const marketingShare = {
+            version: 'v1.0',
+            publish: "2021/12/31",
+            titles: ["排名", "公司", "國別", "市佔率"],
+            data: [
+                { Ranking: 1, Company: "台積電", Country: "台灣", Ratio: "53.1" },
+                { Ranking: 2, Company: "三星電子", Country: "韓國", Ratio: "17.3" },
+                { Ranking: 3, Company: "聯電", Country: "台灣", Ratio: "7.2" },
+                { Ranking: 4, Company: "格羅方德", Country: "美國", Ratio: "6.1" },
+                { Ranking: 5, Company: "中芯國際", Country: "中國", Ratio: "5.3" },
+                { Ranking: 6, Company: "華虹半導體", Country: "中國", Ratio: "2.6" },
+                { Ranking: 7, Company: "力積電", Country: "台灣", Ratio: "1.8" },
+                { Ranking: 8, Company: "世界先進", Country: "台灣", Ratio: "1.4" },
+                { Ranking: 9, Company: "高塔半導體", Country: "以色列", Ratio: "1.4" },
+                { Ranking: 10, Company: "東部高科", Country: "南韓", Ratio: "1" }
+            ]
+        }
+
+
+        let companies = [], data = [];
+        let table, thead, tbody;
+        let marketArray;
+
+        window.onload = function () {
+            // 1.for
+            // for(let i = 0; i< marketingShare.data.length;i++){
+            //     companies[i] = marketingShare.data[i].Company;
+            //     data[i] = marketingShare.data[i].Ratio;
+            // }
+
+            // 2.for..in
+            // for(let x in marketingShare.data){
+            //     companies[x] = marketingShare.data[x].Company;
+            //     data[x] = marketingShare.data[x].Ratio;
+            // }
+
+            // 3.for...of
+            // for(let x of marketingShare.data){
+            //     // console.log(x);
+            //     // companies[x.Ranking-1] = x.Company;
+            //     // data[x.Ranking-1] = x.Ratio;
+            //     companies.push(x.Company);
+            //     data.push(x.Ratio);
+            // }
+
+            // 4.forEach
+            marketingShare.data.forEach(x => {
+                companies.push(x.Company);
+                data.push(x.Ratio);
+            })
+
+            //
+
+            // console.log(companies);
+            // console.log(data);
+            drawChart('pie', companies, data);
+
+            table = document.querySelector('.table');
+            thead = document.createElement('thead');
+            tbody = document.createElement('tbody');
+
+            createThead();
+
+            marketArray = [];
+
+            marketingShare.data.forEach(item => {
+                let values = Object.values(item);
+                // console.log(values);
+                marketArray.push(values);
+            })
+
+            createTbody();
+        }
+
+        function createThead() {
+            let tr = document.createElement('tr');
+
+            marketingShare.titles.forEach(item => {
+                let th = document.createElement('th');
+                th.innerText = item;
+                tr.append(th);
+            })
+
+            thead.append(tr);
+            table.append(thead);
+        }
+
+        function createTbody() {
+
+            marketArray.forEach(item => {
+                let tr = document.createElement('tr');
+
+                item.forEach(x => {
+                    let th = document.createElement('th');
+                    th.innerText = x;
+                    tr.append(th);
+                })
+
+                tbody.append(tr);                
+            })
+            
+            table.append(tbody);
+        }
+
+    </script>
+
+
+
+    <script>
+        //第一個參數為公司陣列, 第二個參數為資料陣列
+        function drawChart(chartType, companyArray, dataArray) {
+            //Pie Chart圓餅圖
+            let ctxPie = document.getElementById("mkShare");
+            //new Chart(畫布,物件)
+            var pieChart = new Chart(ctxPie, {
+                type: chartType,
+                data: {
+                    labels: companyArray,
+                    datasets: [{
+                        data: dataArray,
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(255,75,50)',
+                            'rgb(255, 205, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(54, 162, 235)',
+                            'rgb(153, 102, 255)',
+                            'rgb(201, 203, 207)',
+                            'rgb(255, 138, 64)',
+                            'rgb(142, 65, 64)',
+                            'rgb(59, 72, 64)'
+                        ],
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        fontSize: 26,
+                        text: '2021年全球晶圓代工市佔率%'
+                    },
+                    tooltips: {
+                        mode: 'point',
+                        intersect: true,
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontColor: 'black',
+                        }
+                    }
+                }
+            });
+        }
+        function createTable() {
+        }
+    </script>
+</body>
+
+</html>

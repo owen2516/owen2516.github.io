@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="grid.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .card {
+            border: 1px solid black;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        .media {
+            width: 50%;
+        }
+        .card img {
+            width: 100%;
+            vertical-align: top;
+        }
+        .card .txt {
+            display: block;
+            width: 50%;
+            padding: 10px;
+        }
+
+        @media screen and (min-width:768px) {
+            .card {
+                display: block;
+            }
+            .media {
+                width: 100%;
+            }
+            .card .txt {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            .col-12:first-of-type .card,
+            .col-12:nth-of-type(n+5) .card {
+                display: flex;
+            }
+            .col-12:first-of-type .media,
+            .col-12:nth-of-type(n+5) .media {
+                width: 50%;
+            }
+            .col-12:first-of-type .txt,
+            .col-12:nth-of-type(n+5) .txt {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 col-xl-12">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    
+                    <div class="txt">
+                        <h2>title</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, soluta! Ipsum dicta quae laborum. Aliquam, laborum sed totam repudiandae odit aut saepe nobis, quas, aliquid id molestiae itaque. Rerum, nisi?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    
+                    <div class="txt">
+                        <h2>title</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, soluta! Ipsum dicta quae laborum. Aliquam, laborum sed totam repudiandae odit aut saepe nobis, quas, aliquid id molestiae itaque. Rerum, nisi?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    
+                    <div class="txt">
+                        <h2>title</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, soluta! Ipsum dicta quae laborum. Aliquam, laborum sed totam repudiandae odit aut saepe nobis, quas, aliquid id molestiae itaque. Rerum, nisi?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    
+                    <div class="txt">
+                        <h2>title</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, soluta! Ipsum dicta quae laborum. Aliquam, laborum sed totam repudiandae odit aut saepe nobis, quas, aliquid id molestiae itaque. Rerum, nisi?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    
+                    <div class="txt">
+                        <h2>title</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, soluta! Ipsum dicta quae laborum. Aliquam, laborum sed totam repudiandae odit aut saepe nobis, quas, aliquid id molestiae itaque. Rerum, nisi?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card">
+                    <div class="media">
+                        <img src="https://picsum.photos/300/200/?random=10">
+                    </div>
+                    
+                    <div class="txt">
+                        <h2>title</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, soluta! Ipsum dicta quae laborum. Aliquam, laborum sed totam repudiandae odit aut saepe nobis, quas, aliquid id molestiae itaque. Rerum, nisi?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
