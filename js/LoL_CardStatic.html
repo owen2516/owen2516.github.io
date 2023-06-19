@@ -14,6 +14,10 @@
             max-width: 100%;
         }
 
+        .table img {
+            width: 200px;
+        }
+
         .card {
             border: 1px solid black;
             margin-bottom: 30px;
@@ -2168,7 +2172,8 @@
         let container;
         let btnCreateHeroArray, btnListHero, btnTableHero;
         let heros;
-        let cardStringAll = "";
+        let heroThead= ['英雄','英文','故事','圖片'];
+        let table,tHead,tBody;
 
         window.onload = function () {
             container =  document.querySelector("#container");
@@ -2190,7 +2195,7 @@
                     let title = item.querySelector(".card-title").innerHTML;
                     let text = item.querySelector(".card-text").innerHTML;
                     
-                    heroArray.push({index:i+1, id:item.id, url:url, title:title, text:text,});
+                    heroArray.push({title:title, id:item.id, url:url, text:text});
                 });
 
                 //2.清除container
@@ -2202,13 +2207,17 @@
                     alert("請先建立陣列資料");
                     return;
                 }
-                
-                cardStringAll = "";
-                heroArray.forEach(item => {
-                    let cardString = getCardString(item);
-                    cardStringAll += cardString;
-                });
                 alert("以文字迭代英雄人物資料！");
+                
+
+                var ul = document.createElement('ul');
+                heroArray.forEach(item => {                    
+                    var li = document.createElement('li');
+                    li.innerHTML = `${item.title}<br>${item.url}<br>${item.text}`;
+                    ul.append(li);
+                });
+                container.append(ul);
+                
             });
 
             btnTableHero.addEventListener("click", function(){
@@ -2218,25 +2227,52 @@
                 }
                 
                 alert("以表格呈現英雄人物資料！");
-                container.innerHTML = cardStringAll;
+                container.innerHTML = '';
+                table = document.createElement('table');
+                table.classList.add('table','table-bordered','table-striped');
+                createHead();
+                createBody();
             });
         }
 
-        function getCardString(card){
-            let cardString = `<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" card-index="${card.index}">
-                                <div class="card" id="${card.id}">
-                                    <div class="headshot"> <img class="card-img-top"
-                                            src="${card.url}" alt="..."> </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">${card.title}</h5>
-                                        <p class="card-text">${card.text}</p> <a id="contentButton" href="#"
-                                            class="btn btn-primary">詳細</a> <button id="videoButton" class="btn btn-danger">影片</button> <span
-                                            id="tag1" class="badge badge-success">Mage</span> <span id="tag2"
-                                            class="badge badge-info">Support</span>
-                                    </div>
-                                </div>
-                            </div>`;
-            return  cardString;                        
+        function createHead() {
+            tHead = document.createElement('thead');
+            let tr = document.createElement('tr');
+
+            heroThead.forEach(item => {
+                let th = document.createElement('th');
+                th.innerText = item;
+                tr.append(th);
+            })
+
+            tHead.append(tr); 
+            table.append(tHead); 
+            container.append(table);  
+        }
+
+        function createBody() {
+            tBody = document.createElement('tbody');
+            let tr = document.createElement('tr');
+
+            trStringAll = "";
+            heroArray.forEach(item=>{
+                let trStr = getTrString(item);
+                trStringAll += trStr;
+            })
+
+            tBody.innerHTML = trStringAll;
+            table.append(tBody);
+
+        }
+
+        function getTrString(trStr){
+            let trString = `<tr>
+                            <td>${trStr.title}</td>
+                            <td>${trStr.id}</td>
+                            <td>${trStr.text}</td>
+                            <td><img src="${trStr.url}"></td>
+                            </tr>`;
+            return  trString;                        
         }
 
     </script>
