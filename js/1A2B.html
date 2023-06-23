@@ -128,7 +128,7 @@
         function guess() {
             //輸入檢查
             guessInputNum = guessInput.value.trim();
-            if (guessInputNum === '' || isNaN(guessInputNum) || guessInputNum[0] === '0') {
+            if (guessInputNum === '' || isNaN(guessInputNum) || guessInputNum.length != 4 || guessInputNum[0] === '0') {
                 alert('請輸入正確數字');
                 guessInput.value = '';
                 return;
