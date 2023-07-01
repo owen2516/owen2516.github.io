@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        /* * {
+            outline: 2px solid red;
+        } */
+
+        .pic-bg {
+            background-color: beige;
+            /* border: 2px solid #eee; */
+            height: 350px;
+        }
+
+        .btns {
+            border: 2px solid #eee;
+            transition: all 0.3s;
+            height: 100px;
+        }
+
+        @media screen and (min-width:768px) {
+            .pic-bg {
+                height: 400px;
+            }
+        }
+
+        @media screen and (min-width:1000px) {
+            .pic-bg {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="btn-group border w-50 d-flex mx-auto mb-5">
+            <input type="radio" class="btn-check" name="btnradio" id="btniPhone">
+            <label class="btn" for="btniPhone">iPhone</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btniPad">
+            <label class="btn" for="btniPad">iPad</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnMac">
+            <label class="btn" for="btnMac">Mac</label>
+        </div>
+        <div id="main" class="d-none row justify-content-center">
+            <div class="pic-bg col-10 col-lg-6 p-5 rounded-3 me-3 sticky-top">
+                <div class="w-50 mx-auto">
+                    <img id="ipad-img" class="w-100" src="./images/iPad/iPad_gray.png" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-lg-2">
+                <div id="btnColors"
+                    class="row align-content-start justify-content-between mb-3  border-top border-dark pt-3">
+                    
+                    <!-- <input checked type="radio" value="gray" class="btn-color btn-check d-none" name="btnColor"
+                        id="btnColor1">
+                    <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor1">
+                        <img class="w-50 mx-auto" src="./images/iPad/iPad_try_gray.png" alt="">
+                        <p>太空灰色</p>
+                    </label>
+                    <input type="radio" value="blue" class="btn-color btn-check d-none" name="btnColor" id="btnColor2">
+                    <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor2">
+                        <img class="w-50 mx-auto" src="./images/iPad/iPad_try_blue.png" alt="">
+                        <p>藍色</p>
+                    </label>
+                    <input type="radio" value="rose" class="btn-color btn-check d-none" name="btnColor" id="btnColor3">
+                    <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor3">
+                        <img class="w-50 mx-auto" src="./images/iPad/iPad_try_rose.png" alt="">
+                        <p>粉紅色</p>
+                    </label>
+                    <input type="radio" value="purple" class="btn-color btn-check d-none" name="btnColor"
+                        id="btnColor4">
+                    <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor4">
+                        <img class="w-50 mx-auto" src="./images/iPad/iPad_try_purple.png" alt="">
+                        <p>紫色</p>
+                    </label>
+                    <input type="radio" value="starlight" class="btn-color btn-check d-none" name="btnColor"
+                        id="btnColor5">
+                    <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor5">
+                        <img class="w-50 mx-auto" src="./images/iPad/iPad_try_starlight.png" alt="">
+                        <p>星光色</p>
+                    </label> -->
+                </div>
+                
+                <div id="btnStorages" class="row border-top border-dark py-3">
+                    
+                    <!-- <input type="radio" value="64GB" class="d-none btn-storage btn-check d-none" name="btnStorage"
+                        id="btnStorage1">
+                    <label id="64" class="btns rounded-3 text-center btn col-12" for="btnStorage1">
+                        <h5>64GB</h5>
+                        <p>NT$19,900起</p>
+                    </label>
+                    <input type="radio" value="256GB" class="btn-storage btn-check d-none" name="btnStorage"
+                        id="btnStorage2">
+                    <label id="256" class="btns rounded-3 text-center btn col-12" for="btnStorage2">
+                        <h5>256GB</h5>
+                        <p>NT$24,900起</p>
+                    </label> -->
+                </div>
+                <div id="btnWifi" class="row border-top border-dark py-3">
+                    <!-- <input type="radio" value="Wi-Fi" class="btn-WiFi btn-check d-none" name="btnWiFi" id="btnWiFi">
+                    <label id="wifi" class="btns rounded-3 text-center btn col-12" for="btnWiFi">
+                        <h5>Wi-Fi</h5>
+                        <p>NT$19,900起</p>
+                    </label>
+                    <input type="radio" value="Wi-Fi+行動網路" class="btn-WiFi btn-check d-none" name="btnWiFi"
+                        id="btnWiFi2">
+                    <label id="5G" class="btns rounded-3 text-center btn col-12" for="btnWiFi2">
+                        <h5>Wi-Fi+行動網路</h5>
+                        <p>NT$24,900起</p>
+                    </label> -->
+                </div>
+                <div class="pt-3 border-top border-dark text-center">
+                    <h3 id="price">NT$</h3>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <template>
+        <input type="radio" value="${item.src}" class="btn-color btn-check d-none" name="btnColor"
+            id="btnColor${index}">
+        <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor${index}">
+            <img class="w-50 mx-auto" src="./images/mac/mac_try_${item.src}.png" alt="">
+            <p>${item.color}</p>
+        </label>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const products = [
+            { "id": "ph01", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "松嶺青色", "capacity": "128GB", "price": "32900", 'value':"green" },
+            { "id": "ph02", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "銀色", "capacity": "128GB", "price": "32900", 'value':"silver" },
+            { "id": "ph03", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "金色", "capacity": "128GB", "price": "32900", 'value':"gold" },
+            { "id": "ph04", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "石墨色", "capacity": "128GB", "price": "32900", 'value':"graphite" },
+            { "id": "ph05", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "天峰藍色", "capacity": "128GB", "price": "32900", 'value':"blue" },
+            { "id": "ph06", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "松嶺青色", "capacity": "256GB", "price": "36400", 'value':"green" },
+            { "id": "ph07", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "銀色", "capacity": "256GB", "price": "36400", 'value':"silver" },
+            { "id": "ph08", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "金色", "capacity": "256GB", "price": "36400", 'value':"gold" },
+            { "id": "ph09", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "石墨色", "capacity": "256GB", "price": "36400", 'value':"graphite" },
+            { "id": "ph10", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "天峰藍色", "capacity": "256GB", "price": "36400", 'value':"blue" },
+            { "id": "ph11", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "松嶺青色", "capacity": "512GB", "price": "43400", 'value':"green" },
+            { "id": "ph12", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "銀色", "capacity": "512GB", "price": "43400", 'value':"silver" },
+            { "id": "ph13", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "金色", "capacity": "512GB", "price": "43400", 'value':"gold" },
+            { "id": "ph14", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "石墨色", "capacity": "512GB", "price": "43400", 'value':"graphite" },
+            { "id": "ph15", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "天峰藍色", "capacity": "512GB", "price": "43400", 'value':"blue" },
+            { "id": "ph16", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "松嶺青色", "capacity": "1TB", "price": "50400", 'value':"green" },
+            { "id": "ph17", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "銀色", "capacity": "1TB", "price": "50400", 'value':"silver" },
+            { "id": "ph18", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "金色", "capacity": "1TB", "price": "50400", 'value':"gold" },
+            { "id": "ph19", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "石墨色", "capacity": "1TB", "price": "50400", 'value':"graphite" },
+            { "id": "ph20", 'type':"iPhone", "name": "iPhone 13 Pro", "size": "6.1吋顯示器", "color": "天峰藍色", "capacity": "1TB", "price": "50400", 'value':"blue" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "太空灰色", "capacity": "64GB", "internet": "Wi-Fi", "price": "19900", 'value':"gray" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "粉紅色", "capacity": "64GB", "internet": "Wi-Fi", "price": "19900", 'value':"rose" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "紫色", "capacity": "64GB", "internet": "Wi-Fi", "price": "19900", 'value':"purple" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "藍色", "capacity": "64GB", "internet": "Wi-Fi", "price": "19900", 'value':"blue" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "星光色", "capacity": "64GB", "internet": "Wi-Fi", "price": "19900", 'value':"starlight" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "太空灰色", "capacity": "64GB", "internet": "Wi-Fi+行動網路", "price": "24900", 'value':"gray" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "粉紅色", "capacity": "64GB", "internet": "Wi-Fi+行動網路", "price": "24900", 'value':"rose" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "紫色", "capacity": "64GB", "internet": "Wi-Fi+行動網路", "price": "24900", 'value':"purple" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "藍色", "capacity": "64GB", "internet": "Wi-Fi+行動網路", "price": "24900", 'value':"blue" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "星光色", "capacity": "64GB", "internet": "Wi-Fi+行動網路", "price": "24900", 'value':"starlight" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "太空灰色", "capacity": "256GB", "internet": "Wi-Fi", "price": "24900", 'value':"gray" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "粉紅色", "capacity": "256GB", "internet": "Wi-Fi", "price": "24900", 'value':"rose" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "紫色", "capacity": "256GB", "internet": "Wi-Fi", "price": "24900", 'value':"purple" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "藍色", "capacity": "256GB", "internet": "Wi-Fi", "price": "24900", 'value':"blue" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "星光色", "capacity": "256GB", "internet": "Wi-Fi", "price": "24900", 'value':"starlight" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "太空灰色", "capacity": "256GB", "internet": "Wi-Fi+行動網路", "price": "29900", 'value':"gray" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "粉紅色", "capacity": "256GB", "internet": "Wi-Fi+行動網路", "price": "29900", 'value':"rose" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "紫色", "capacity": "256GB", "internet": "Wi-Fi+行動網路", "price": "29900", 'value':"purple" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "藍色", "capacity": "256GB", "internet": "Wi-Fi+行動網路", "price": "29900", 'value':"blue" },
+            { "id": "pa01", 'type':"iPad", "name": "iPad Air", "color": "星光色", "capacity": "256GB", "internet": "Wi-Fi+行動網路", "price": "29900", 'value':"starlight" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "午夜色", "capacity": "256GB", "price": "37900", 'value': "moonlight" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "星光色", "capacity": "256GB", "price": "37900", 'value': "starlight" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "太空灰色", "capacity": "256GB", "price": "37900", 'value': "gray" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "銀色", "capacity": "256GB", "price": "37900", 'value': "silver" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "午夜色", "capacity": "512GB", "price": "46900", 'value': "moonlight" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "星光色", "capacity": "512GB", "price": "46900", 'value': "starlight" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "太空灰色", "capacity": "512GB", "price": "46900", 'value': "gray" },
+            { "id": "mac01", 'type':"mac", "name": "MacBook Air", "color": "銀色", "capacity": "512GB", "price": "46900", 'value': "silver" }
+        ]
+        let btniPhone, btniPad, btnMac;
+        let iphoneArray,ipadArray,macArray;
+        let priceArr;
+        let ipadImg;
+        let btnColors;
+        let btnStorages, btnWiFis;
+        let threeC = "iPad", capa = "64GB", wifi = "Wi-Fi";
+        let price;
+
+        window.onload = function () {
+            btniPhone = document.querySelector('#btniPhone');
+            btniPad = document.querySelector('#btniPad');
+            btnMac = document.querySelector('#btnMac');
+            ipadImg = document.getElementById("ipad-img");
+            price = document.getElementById('price');
+            // updatePrice();
+
+            iphoneArray = products.filter(x => x.name == "iPhone 13 Pro");
+            ipadArray = products.filter(x => x.name == "iPad Air");
+            macArray = products.filter(x => x.name == "MacBook Air");
+
+            btniPhone.addEventListener("click",setAll.bind(event,iphoneArray,"iPhone"));
+            btniPad.addEventListener("click",setAll.bind(event,ipadArray,"iPad"));
+            btnMac.addEventListener("click",setAll.bind(event,macArray,"mac"));
+        }
+
+        function switchImg(a) {
+            ipadImg.src = a;
+        }
+
+        function setStorage(a) {
+            capa = a;
+            console.log(capa);
+            updatePrice();
+        }
+
+        function setWifi(a) {
+            wifi = a;
+            updatePrice();
+        }
+
+        function setAll(Arr,name){
+            threeC = name;
+            switchImg(`./images/${name}/${name}.png`);
+            price.innerText = 'NT$';
+            setBtnColor(Arr);
+            setBtnStorage(Arr);
+            let main = document.querySelector('#main');
+            main.classList.remove("d-none");
+            let btnWifi = document.querySelector("#btnWifi");
+            if (Arr != ipadArray){
+                wifi = '';
+                btnWifi.innerHTML = '';
+                btnWifi.classList.add('d-none');
+                return;
+            }
+            btnWifi.classList.remove('d-none');
+            wifi = "Wi-Fi";
+            setBtnWifi(Arr);
+        }
+
+        function setBtnColor(Arr) {
+            let setColor = new Set();
+            let btnColorArr = Arr.filter(x => !setColor.has(x.color) ? setColor.add(x.color) : false);
+            console.log(btnColorArr);
+            let btnColor = document.querySelector("#btnColors");
+            btnColor.classList.remove("d-none");
+            btnColor.innerHTML = '<div class="col-12"><h3>外觀</h3></div>';
+            btnColorArr.forEach((item, index) => {
+                let btn = `<input onclick="switchImg('./images/${item.type}/${item.type}_${item.value}.png')" type="radio" class="btn-color btn-check d-none" name="btnColor" id="btnColor${index}"> 
+                        <label class="btns rounded-3 text-center btn col-2 col-lg-6" for="btnColor${index}">
+                            <img class="w-50 mx-auto" src="./images/${item.type}/${item.type}_try_${item.value}.png" alt="">
+                            <p>${item.color}</p>
+                        </label>`;
+                btnColor.innerHTML += btn;
+            })
+        }
+
+        function setBtnStorage(Arr) {
+            let setStorage = new Set();
+            let btnStorageArr = Arr.filter(x => !setStorage.has(x.capacity) ? setStorage.add(x.capacity) : false);
+            console.log(btnStorageArr);
+            let btnStorage = document.querySelector("#btnStorages");
+            btnStorage.classList.remove("d-none");
+            btnStorage.innerHTML = '<div class="col-12"><h3>容量</h3></div>';
+            btnStorageArr.forEach((item,index) => {
+                let btn = `<input type="radio" onclick="setStorage('${item.capacity}')" class="btn-storage btn-check d-none" name="btnStorage"
+                            id="btnStorage${index}">
+                            <label id="64" class="btns rounded-3 text-center btn col-12" for="btnStorage${index}">
+                                <h5 class="mt-4">${item.capacity}</h5>
+                            </label>`;
+            btnStorage.innerHTML += btn;
+            })
+        }
+
+        function setBtnWifi(Arr) {
+            let setWifi = new Set();
+            let btnWifiArr = Arr.filter(x => !setWifi.has(x.internet) ? setWifi.add(x.internet) : false);
+            console.log(btnWifiArr);
+            let btnWifi = document.querySelector("#btnWifi");
+            btnWifi.classList.remove("d-none");
+            btnWifi.innerHTML = '<div class="col-12"><h3>連線能力</h3></div>';
+            btnWifiArr.forEach((item,index) => {
+                let btn = `<input type="radio" onclick="setWifi('${item.internet}')" class="btn-WiFi btn-check d-none" name="btnWiFi" id="btnWiFi${index}">
+                                <label id="wifi" class="btns rounded-3 text-center btn col-12" for="btnWiFi${index}">
+                                    <h5 class="mt-4">${item.internet}</h5>
+                                </label>`;
+                btnWifi.innerHTML += btn;
+            })
+        }
+
+        function updatePrice() {
+            let Arr = [...products];
+            if (!wifi == ''){
+                Arr = products.filter(x => x.internet == wifi);
+            }
+            priceArr = Arr.filter(x => x.type == threeC && x.capacity == capa);
+            // console.log(priceArr);
+            price.innerText = `NT$${priceArr[0].price}`;
+        }
+
+    </script>
+</body>
+
+</html>
