@@ -97,14 +97,17 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script>
-        let recording = []
+        let recording = [{
+            data:"2023/7/7",
+            text:"剪頭髮"
+        }]
         let kkk = -1;
         let ppp = '';
         let spaceDiv = -1;
         let currentData;
 
-        // let arrayToString = JSON.stringify(recording);
-        // localStorage.setItem('calenderRe', arrayToString);
+        let arrayToString = JSON.stringify(recording);
+        localStorage.setItem('calenderRe', arrayToString);
 
         let RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
         console.log(RecordArr);
