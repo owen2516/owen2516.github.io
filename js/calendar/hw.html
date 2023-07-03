@@ -60,7 +60,7 @@
 
         .note {
             color: #fca311;
-        }        
+        }
     </style>
 </head>
 
@@ -116,8 +116,10 @@
         let spaceDiv = -1;
         let currentData;
 
-        let arrayToString = JSON.stringify(recording);
-        localStorage.setItem('calenderRe', arrayToString);
+        // if (!JSON.parse(localStorage.getItem('calenderRe'))) {
+        //     let arrayToString = JSON.stringify(recording);
+        //     localStorage.setItem('calenderRe', arrayToString);
+        // }
 
         let RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
         console.log(RecordArr);
