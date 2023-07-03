@@ -115,11 +115,13 @@
         let ppp = '';
         let spaceDiv = -1;
         let currentData;
+        let RecordArrl
 
-        // if (!JSON.parse(localStorage.getItem('calenderRe'))) {
-        //     let arrayToString = JSON.stringify(recording);
-        //     localStorage.setItem('calenderRe', arrayToString);
-        // }
+        if (JSON.parse(localStorage.getItem('calenderRe'))) {
+            RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
+        } else {
+            RecordArr = [];
+        }
 
         let RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
         console.log(RecordArr);
