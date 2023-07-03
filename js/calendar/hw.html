@@ -20,10 +20,11 @@
         .btn_orange {
             color: #fca311;
             background-color: #d9eef0;
-            
+
             font-weight: bold;
             transition: all 0.3s;
         }
+
         .btn_orange:hover {
             color: #000;
             background-color: #fca311;
@@ -48,7 +49,7 @@
         }
 
         .note {
-            color:#fca311;
+            color: #fca311;
         }
     </style>
 </head>
@@ -86,7 +87,9 @@
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" id="saveBtn" class="btn btn-primary">Save</button>
+                    <button type="button" id="saveBtn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                    <button type="button" id="reviseBtn" class="d-none btn btn-info"
+                        >Revise</button>
                     <button type="button" id="deleteBtn" class="d-none btn btn-danger"
                         data-bs-dismiss="modal">Delete</button>
                 </div>
@@ -97,10 +100,10 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script>
-        let recording = [{
+        let recording = recording = [{
             data:"2023/7/7",
             text:"剪頭髮"
-        }]
+        }];
         let kkk = -1;
         let ppp = '';
         let spaceDiv = -1;
@@ -118,6 +121,7 @@
             let back = document.querySelector('#back');
             let next = document.querySelector('#next');
             let btnSave = document.querySelector('#saveBtn');
+            let btnRevise = document.querySelector('#reviseBtn');
             let btnDelete = document.querySelector('#deleteBtn');
             let currentDay = new Date();
             console.log(currentDay);
@@ -184,6 +188,15 @@
                 }
                 console.log(RecordArr);
             })
+
+            btnRevise.addEventListener('click', () => {
+
+                let modal = document.querySelector("#recordModal");
+                modal.querySelector('input').removeAttribute("disabled",'');
+                btnSave.classList.remove("d-none");
+                btnRevise.classList.add("d-none");
+                
+            })
         }
 
         function getDayss(day) {
@@ -215,6 +228,7 @@
 
             let modal = document.querySelector("#recordModal");
             let btnS = modal.querySelector('#saveBtn');
+            let btnRe = modal.querySelector('#reviseBtn');
             let btnDe = modal.querySelector('#deleteBtn');
 
             calendar.innerHTML = '';
@@ -248,14 +262,19 @@
                     if (div.querySelector('p')) {
                         ppp = div.querySelector('p').innerHTML;
                         modal.querySelector('input').value = ppp;
+                        modal.querySelector('input').setAttribute("disabled", "");
 
                         btnS.classList.add('d-none');
                         btnDe.classList.remove('d-none');
-                        return;
+                        btnRe.classList.remove('d-none');
+                    } else {
+                        modal.querySelector('input').value = ppp;
+                        modal.querySelector('input').removeAttribute("disabled");
+                        btnS.classList.remove('d-none');
+                        btnDe.classList.add('d-none');
+                        btnRe.classList.add('d-none');
                     }
-                    modal.querySelector('input').value = ppp;
-                    btnS.classList.remove('d-none');
-                    btnDe.classList.add('d-none');
+
 
                 })
                 calendar.append(div);
