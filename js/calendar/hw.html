@@ -46,6 +46,16 @@
             background-color: #d9eef0;
             color: #03045e;
             border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
+        }
+
+        .cur {
+            cursor: pointer;
+            transition: all 0.3s;            
+        }
+
+        .cur:hover {
+            transform: translateY(-4px);
         }
 
         .note {
@@ -100,17 +110,14 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script>
-        let recording = [{
-            data:"2023/7/7",
-            text:"剪頭髮"
-        }];
+        let recording = [];
         let kkk = -1;
         let ppp = '';
         let spaceDiv = -1;
         let currentData;
 
-        // let arrayToString = JSON.stringify(recording);
-        // localStorage.setItem('calenderRe', arrayToString);
+        let arrayToString = JSON.stringify(recording);
+        localStorage.setItem('calenderRe', arrayToString);
 
         let RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
         console.log(RecordArr);
@@ -238,6 +245,7 @@
             }
             for (let i = 0; i < Arr.dayOfMonth; i++) {
                 let div = document.createElement('div');
+                div.classList.add('cur');
                 div.innerHTML = `${i + 1}`;
                 let thisData = `${Arr.year}/${Arr.month + 1}/${i + 1}`;
                 // console.log(currentData);
@@ -279,12 +287,6 @@
                 })
                 calendar.append(div);
             }
-
-        }
-
-
-
-        function loadDiv(Arr) {
 
         }
 
