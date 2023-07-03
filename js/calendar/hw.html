@@ -117,13 +117,14 @@
         let currentData;
         let RecordArr = [];
 
-        // if (JSON.parse(localStorage.getItem('calenderRe'))) {
-        //     RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
-        // } else {
+        if (JSON.parse(localStorage.getItem('calenderRe'))) {
+            RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
+        } 
+        // else {
         //     RecordArr = [];
         // }
 
-        RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
+        // RecordArr = JSON.parse(localStorage.getItem('calenderRe'));
         console.log(RecordArr);
 
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
