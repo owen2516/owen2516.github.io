@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: GenJyuuGothicX;
+    src: url("./images/GenJyuuGothicX-P-Light.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: GenJyuuGothicX, 微軟正黑體, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+body {
+    background: url(./images/bg2.png), #FDF0D5;
+    background-size: 30%;
+}
+
+.bg_Lblue {
+    border: solid 3px #d9eef0;
+    background-color: #d9eef0;
+    box-shadow: 0px 15px 15px -10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.bg_Lblue:hover {
+    border: solid 3px #d9eef0;
+    background-color: #d9eef0;
+    box-shadow: 0px 15px 15px -5px rgba(0, 0, 0, 0.5);
+}
+
+.bg-shadow {
+    box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bg-Lyellow {
+    background-color: #fff !important;
+}
+

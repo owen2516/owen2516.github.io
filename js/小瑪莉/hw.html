@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="all.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div box-id="1" class="col-1"></div>
+            <div box-id="2" class="col-1"></div>
+            <div box-id="3" class="col-1"></div>
+            <div box-id="4" class="col-1"></div>
+            <div box-id="5" class="col-1"></div>
+            <div box-id="6" class="col-1"></div>
+            <div box-id="7" class="col-1"></div>
+            <div box-id="8" class="col-1"></div>
+            <div box-id="9" class="col-1"></div>
+            <div box-id="10" class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div box-id="30" class="col-1"></div>
+            <div class="col-8"></div>
+            <div box-id="11" class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div box-id="29" class="col-1"></div>
+            <div class="col-8 text-center">
+                <h2>與你相劇-小瑪莉版</h2>
+            </div>
+            <div box-id="12" class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div box-id="28" class="col-1"></div>
+            <div class="col-8 text-center">
+                <button id="startBtn" class="btn bg_Lblue">Start</button>
+            </div>
+            <div box-id="13" class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div box-id="27" class="col-1"></div>
+            <div class="col-8"></div>
+            <div box-id="14" class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div box-id="26" class="col-1"></div>
+            <div class="col-8"></div>
+            <div box-id="15" class="col-1"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div box-id="25" class="col-1"></div>
+            <div box-id="24" class="col-1"></div>
+            <div box-id="23" class="col-1"></div>
+            <div box-id="22" class="col-1"></div>
+            <div box-id="21" class="col-1"></div>
+            <div box-id="20" class="col-1"></div>
+            <div box-id="19" class="col-1"></div>
+            <div box-id="18" class="col-1"></div>
+            <div box-id="17" class="col-1"></div>
+            <div box-id="16" class="col-1"></div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="figureModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
+                <button type="button" class="ms-auto btn-close" data-bs-dismiss="modal"></button>
+                <img class="w-50 mx-auto" src="./images/man1.png" alt="">
+                <h5 class="text-center fw-bold">給才華洋溢的你</h5>
+                <span class="fw-bold mb-2">角色特質：</span>
+                <p id="character">具有神秘感，浪漫且才華出眾，堅強的外表，內心卻有些許脆弱寂寞不為人所知。</p>
+                <span class="fw-bold mb-2">人物故事：</span>
+                <p id="character-text">故事發生在1919年巴黎歌劇院。
+                    <br>魅影艾瑞克是一個充滿音樂天賦以及擁有腹語術的魔術師，才華洋溢，
+                    <br>神秘的他卻極為浪漫，滿心為自己所愛的人付出一切，
+                    <br>只為一個小小的心願─住在充滿陽光的公寓、一個真心愛他的妻子，
+                    <br>一個屬於正常人的生活。
+                    <br>
+                    <br>他出生於法國魯昂，生來其貌不揚，只能以面具掩面。
+                    <br>父母不喜歡他，因此他逃離了家，遊歷世界，他才華橫溢，擅長作曲和建造各種機關暗器。
+                    <br>回到法國之後，暗中參與巴黎歌劇院的建設，
+                    <br>在歌劇院的牆壁裡和地下室布滿機關和密室。待完工後，自己便藏身其中。
+                    <br>多年來他神出鬼沒，躲避世人驚懼鄙夷的目光，被眾人稱之為「魅影」。
+                    <br>雖然面容恐怖，卻有一副好嗓子，是個才華洋溢的天才。
+                    <br>人人畏懼於他的臉孔，殊不知最可怕的外表下卻藏著一顆最脆弱的心。
+                    <br>（出自歌劇魅影）</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script>
+        //Modal start===============
+        var myModal = new bootstrap.Modal(document.getElementById('figureModal'), {
+            keyboard: false
+        })
+
+        const figureData = [
+            {
+                id: '1',
+                color: '#ECDCDC',
+                imgUrl: './images/man1.png',
+                bless: '給才華洋溢的你',
+                character: '具有神秘感，浪漫且才華出眾，堅強的外表，內心卻有些許脆弱寂寞不為人所知。',
+                text: `故事發生在1919年巴黎歌劇院。
+                    <br>魅影艾瑞克是一個充滿音樂天賦以及擁有腹語術的魔術師，才華洋溢，
+                    <br>神秘的他卻極為浪漫，滿心為自己所愛的人付出一切，
+                    <br>只為一個小小的心願─住在充滿陽光的公寓、一個真心愛他的妻子，
+                    <br>一個屬於正常人的生活。
+                    <br>
+                    <br>他出生於法國魯昂，生來其貌不揚，只能以面具掩面。
+                    <br>父母不喜歡他，因此他逃離了家，遊歷世界，他才華橫溢，擅長作曲和建造各種機關暗器。
+                    <br>回到法國之後，暗中參與巴黎歌劇院的建設，
+                    <br>在歌劇院的牆壁裡和地下室布滿機關和密室。待完工後，自己便藏身其中。
+                    <br>多年來他神出鬼沒，躲避世人驚懼鄙夷的目光，被眾人稱之為「魅影」。
+                    <br>雖然面容恐怖，卻有一副好嗓子，是個才華洋溢的天才。
+                    <br>人人畏懼於他的臉孔，殊不知最可怕的外表下卻藏著一顆最脆弱的心。
+                    <br>（出自歌劇魅影）`
+            },
+            {
+                id: '2',
+                color: '#D7E3E3',
+                imgUrl: './images/man2.png',
+                bless: '給正義勇為的你',
+                character: `正義勇為，信仰堅定，認為人性本惡
+                    <br>為了心中的正義能義無反顧，犧牲自己也在所不辭`,
+                text: `故事發生在19世紀初20年間的法國。
+                    <br>賈維是個信仰堅定，認為自己即是正義的警察。他可以說是正義的堅持者，也是正義的頑固者。
+                    <br>他相信慈悲是罪犯的根苗，他認為壞人一輩子都是壞人，不可能真的改過。
+                    <br>所以窮其一生誓將逃獄的尚萬強抓回牢獄，但在看到尚萬強的許多善行、
+                    <br>甚至自己也被他拯救後發現尚萬強的本性是多麼善良，因而開始感到混亂，
+                    <br>這對一個抱持人性本惡論的警探而言，是非常殘酷的一件事。
+                    <br>因此他在下水道放走尚萬強之後，由於無法再面對自己持守多年的信念，
+                    <br>選擇跳河一途結束他充滿殉道意味的一生。
+                    <br>（出自悲慘世界） `
+            },
+            {
+                id: '3',
+                color: '#DED57E',
+                imgUrl: './images/man3.png',
+                bless: '給貼心善良的你',
+                character: '勇敢不懼強權，為人正義、慈悲，勇於挑戰制式的規定，不被命運打倒。',
+                text: `故事發生在19世紀初20年間的法國。
+                    <br>尚萬強是一個貧苦工人的兒子，因為偷一條麵包救濟姐姐的孩子因而判五年徒刑。
+                    <br>由於他並不信任法律，屢屢越獄以致罪刑加重。
+                    <br>從監獄出來後帶著黃色身份證找工作四處碰壁，生活極為艱難。
+                    <br>雖然遭受社會歧視，他隱姓埋名遠走他鄉，經過努力奮鬥有了自己的一家工廠。
+                    <br>由於對當地的貢獻當選爲市長。
+                    <br>他為人慈悲，幫助懷孕後遭人拋棄的女工芳婷撫養她的女兒珂賽特。
+                    <br>（出自悲慘世界）`
+            },
+            {
+                id: '4',
+                color: '#ECB7B1',
+                imgUrl: './images/man4.png',
+                bless: '給善良樸實的你',
+                character: '心地善良，真誠，願意為了幫助他人，犧牲自身利益，抵抗心中的慾望人物故事',
+                text: `阿拉丁出身貧寒，流浪於阿格拉巴的街頭。
+                    <br>雖是個街頭混混但心地善良，平日與猴子阿布Abu相依為命。
+                    <br>一天，他巧遇偷跑出皇宮外透氣散心的茉莉公主Jasmine，兩人互動後彼此心儀。
+                    <br>阿格拉巴國大臣賈方Jafar想方設法要篡奪蘇丹Sultan的王位，為達此目的則需取得魔幻洞穴的神燈。賈方誘迫最佳人選阿拉丁去拿神燈，阿拉丁卻在紛亂中陰錯陽差的成了神燈主人。在神燈精靈Genie的幫忙下，他能夠許下三個願望。
+                    <br>而阿拉丁許了第一個願望成為富裕貴氣的阿里王子，以求能和茉莉公主共結連理。
+                    <br>而後他被賈方陷害掉入海裡後被迫使用了第二次願望。
+                    <br>即便起初他最想許的願望是擺脫貧窮，
+                    <br>然而善良的阿拉丁仍然使用第三個願望讓精靈獲得自由。
+                    <br>（出自阿拉丁）`
+            },
+            {
+                id: '5',
+                color: '#D7E3E3',
+                imgUrl: './images/man5.png',
+                bless: '給熱心誠懇的你',
+                character: `熱心、重義氣
+                    <br>對身邊的人來說，你就是最好的朋友！`,
+                text: `神燈裡的精靈可以幫助主人實現三個願望，
+                    <br>然而他被封印在神奇洞穴之中，已經有一萬年了。
+                    <br>精靈世界的法則：每個精靈都必須住在一盞神燈裡，
+                    <br>並為神燈的主人服務，實現他三個願望。
+                    <br>除非神燈的持有者許願讓他自由，他才能夠自由自在的生活。
+                    <br>神燈精靈被困在小小的神燈裡，雖然法力強大，
+                    <br>卻只能受人支配完成他人的願望。
+                    <br>凡是摩擦神燈的人，就是他的主人，神燈精靈必會使命必達。
+                    <br>神燈精靈說自己沒有朋友，
+                    <br>因為沒有人傻到願意犧牲自己僅有的三個願望來為自己許願。
+                    <br>但善良的阿拉丁卻承諾會用第三個願望讓精靈獲得自由。
+                    <br>除了完成阿拉丁成為王子的心願之外，
+                    <br>精靈也在危急中拯救了阿拉丁，
+                    <br>陪伴阿拉丁一路成長，適時給予他勇氣，
+                    <br>神燈精靈無疑是最棒的朋友！
+                    <br>祂與阿拉丁之間的友情比許願的神燈更加地珍貴，
+                    <br>最後神燈精靈從神燈中被釋放，迎來屬於祂自己的幸福。
+                    <br>（出自阿拉丁）`
+            },
+            {
+                id: '6',
+                color: '#ECB7B1',
+                imgUrl: './images/woman1.png',
+                bless: '給勇敢追愛的你',
+                character: `擁有他人無法媲美的美貌與堅強的意志力，              
+                    <br>成熟懂事，且勇於堅持自己所愛。`,
+                text: `《羅密歐與茱麗葉》是莎士比亞著名悲劇作品之一。
+                    <br>故事發生在1591年的義大利維洛那城，
+                    <br>出生於凱普萊特家族的茱麗葉，是族長的女兒，
+                    <br>擁有他人無法媲美的美貌與堅強的意志力。
+                    <br>即便蒙太古和凱普萊特家族為世仇，
+                    <br>她仍在舞會上與蒙太古家族的羅密歐陷入愛河。
+                    <br>為了和羅密歐在一起，她服下藥水假死，
+                    <br>計劃醒來後就和羅密歐私奔。
+                    <br>但因爲負責告訴羅密歐茱麗葉假死消息的人未能及時傳信，
+                    <br>得知茱麗葉的死後，羅密歐不願獨生而服毒殉情。
+                    <br>茱麗葉醒來發現羅密歐自盡，也以短劍結束了生命。
+                    <br>她對自己的感情誠實，但成熟懂事不直接違抗父命，
+                    <br>勇敢維護自己的婚姻。
+                    <br>（出自羅密歐與茱麗葉）`
+            },
+            {
+                id: '7',
+                color: '#B8CAC9',
+                imgUrl: './images/woman2.png',
+                bless: '給天真爛漫的你',
+                character: '愛好自由、率真熱情，活潑開朗，不受框架與制度限制',
+                text: `故事發生在1927年，
+                    <br>瑪麗亞是阿爾卑斯山上一所修道院的實習修女。
+                    <br>不同於其他修女，天真爛漫的她常常不遵守院裡的作息，偷偷跑到山頭外玩耍、歌唱。
+                    <br>於是瑪麗亞被喚入院長辦公室內，慈悲的院長看出這不是適合她的居身之所，
+                    <br>決定讓她下山，到一戶人家擔任家庭教師。
+                    <br>而房子的主人則是海軍崔普上校以及他與前妻生的七名子女。
+                    <br>由於沒有母親，身兼母職的上校以嚴格的軍事化方式教育孩子。
+                    <br>然而隨著瑪麗亞的來臨漸漸改變了整個家。
+                    <br>他教這些孩子唱歌，帶他們嬉戲
+                    <br>，並教這些孩子演布偶戲等才藝，博得了孩子們的喜愛。
+                    <br>不久，瑪麗亞與上校間的關係也迅速升溫，
+                    <br>上校便向瑪麗亞求婚，雖然因為修女的身分讓她猶疑不定，
+                    <br>但在最後她決定遵從自己的感情。
+                    <br>步入禮堂後，瑪麗亞與崔普一家人共度歡樂的家庭時光。
+                    <br>（出自真善美）`
+            },
+            {
+                id: '8',
+                color: '#EEECBB',
+                imgUrl: './images/woman3.png',
+                bless: '給善解人意的你',
+                character: `生性愛唱歌、跳舞，長相美麗且善解人意，
+                    <br>就算遭人陷害也願意原諒並以助人為樂。`,
+                text: `生性愛唱歌、跳舞，長相美麗且善解人意，
+                    <br>就算遭人陷害也願意原諒並以助人為樂。
+                    <br>人物故事：在鐘樓怪人中，
+                    <br>故事的場景設定在1482年的巴黎聖母院。
+                    <br>愛絲梅蘭達是一位芳齡十六，長相甜美的少女。
+                    <br>雖然身為流浪民族，在當時的法國身分如此卑微，
+                    <br>但是他利用了他美好的外表與舞蹈和歌聲，為人們帶來快樂。
+                    <br>愛絲梅拉達從小被吉普賽人從母親身邊奪走，
+                    <br>收留她的吉普賽人死後，便開始四處流浪賣藝。
+                    <br>即便自幼命運多劫難，她仍善解人意並以助人為樂，
+                    <br>利用了他美好的外表與舞蹈和歌聲，為人們帶來快樂。
+                    <br>愛絲梅拉達流浪到巴黎後，迷戀上了騎士菲比斯，
+                    <br>可是陰毒狡詐的克洛德·弗羅格教士也看上了愛絲梅拉達。
+                    <br>由於拒絕教士的感情，愛絲梅蘭達慘遭陷害。
+                    <br>然而，即便曾因教士的教唆，被鐘樓怪人加西莫多襲擊，
+                    <br>但在加西莫多有難時，她仍願意伸出援手。
+                    <br>（出自鐘樓怪人）`
+            },
+            {
+                id: '9',
+                color: '#EFE1C7',
+                imgUrl: './images/woman4.png',
+                bless: '給自信獨立的你',
+                character: `直爽、真誠，古靈精怪，
+                    <br>勇於冒險，常對未知的世界感到好奇。`,
+                text: `在法語中「belle」一詞意為「美麗的」（beautiful）
+                    <br>在《美女與野獸》的故事裡，
+                    <br>貝兒是可愛、純潔的美國小鎮女孩，對冒險、浪漫和外面的世界充滿憧憬。
+                    <br>她熱愛學習，自信獨立，喜歡看書，因為在書裏面，她可以借著自己的想象力飛到遠處，體會浪漫，她甚至會把自己喜歡的書看上好幾遍。
+                    <br>父親是位商人，在外出時遭到野獸關進監牢，如果想回去，則必須拿自己的女兒來交換。
+                    <br>為了拯救父親，貝兒甘願留在城堡陪伴野獸，並在與野獸的朝夕相處中對他漸生情愫。
+                    <br>最終，野獸變身成為了一位王子，王子向她解釋道：
+                    <br>很久以前，一個仙女向他請求進到城堡避雨，他拒絕了，
+                    <br>於是便被仙女變成了一隻可怕的野獸，只有找到不在乎醜陋外表的真愛，才能破除詛咒。
+                    <br>最後，王子與貝兒結了婚，從此幸福快樂地生活了下去。`
+            },
+            {
+                id: '10',
+                color: '#EEECBB',
+                imgUrl: './images/woman5.png',
+                bless: '給聰穎獨特的你',
+                character: `聰明，有主見，勇敢，卻有點叛逆
+                    <br>不願意受到世俗的束縛，勇於追求心之所向。`,
+                text: `茉莉公主為阿格拉巴王國的公主，蘇丹的女兒。
+                    <br>聰明，有主見，叛逆，勇敢，卻有點孤獨。
+                    <br>她從小就備受各種限制，對於飽受束縛的生活感到無聊，
+                    <br>於是逃出了皇宮，巧遇了阿拉丁並與他相愛。
+                    <br>她果敢有自信、敢於追求夢想爭取自主權利，是具女性自覺的新時代女性。
+                    <br>與阿拉丁相識之初，茉莉公主假扮成貼身女侍達莉亞；
+                    <br>而阿拉丁知道茉莉的身分後，為了與之相配，藉由神燈精靈的力量偽裝成阿里王子。
+                    <br>在故事的最後運用聰明才智，與阿拉丁同心協力對抗欲篡位的大臣賈方。
+                    <br>最終，茉莉破除女性不能當蘇丹國王的限制，成為治理國家的君主。
+                    <br>（出自阿拉丁）`
+            }
+        ]
+
+        let bricks = document.querySelectorAll('[box-id]');
+        bricks = [...bricks].sort((a, b) => { return a.getAttribute('box-id') - b.getAttribute('box-id') })
+        console.log(bricks);
+        //渲染畫面
+        bricks.forEach((item, idx) => {
+            let id = (idx + 1) % 10 != 0 ? (idx + 1) % 10 : 10;
+            let obj = figureData.find(x => x.id == id);
+
+            let img = document.createElement('img');
+            img.src = `${obj.imgUrl}`;
+            item.style.backgroundColor = `${obj.color}`;
+            img.classList.add('w-100');
+            item.classList.add('bg-Lyellow');
+            item.append(img);
+        })
+
+        let steps = 0; //剩餘步數
+        let allSteps = 0; //全部步數
+        let currentIndex = 0; //目前走到哪一格
+
+        let speed; //速率
+
+        document.getElementById('startBtn').addEventListener("click", () => {
+            speed = 50;
+
+            let random = Math.floor(Math.random() * bricks.length) + 1;
+            allSteps = random + (bricks.length * 3);
+            steps = allSteps;
+            turnAround();
+        })
+
+        function turnAround() {
+            bricks[currentIndex].classList.add('bg-Lyellow');
+            currentIndex++;
+
+            if (currentIndex >= bricks.length) {
+                currentIndex = 0;
+            }
+
+            bricks[currentIndex].classList.remove('bg-Lyellow');
+            steps--;
+            console.log(steps);
+            if (steps > 0) {
+                setTimeout(turnAround, speed);
+
+                if (steps < (allSteps / 7)) {
+                    speed += 7;
+                }
+            } else {
+                console.log(bricks[currentIndex]);
+                let num = bricks[currentIndex].getAttribute('box-id');
+                let id = num % 10 != 0 ? num % 10 : 10;
+                let obj = figureData.find(x => x.id == id);
+                console.log(obj)
+
+                let modal = document.getElementById('figureModal');
+                let modalbg = modal.querySelector('.modal-content');
+                modalbg.style.backgroundColor = `${obj.color}`;
+
+                let img = modal.querySelector('img');
+                img.src = `${obj.imgUrl}`;
+                let h5 = modal.querySelector('h5');
+                h5.innerHTML = `${obj.bless}`;
+
+                let character = document.getElementById('character');
+                character.innerHTML = `${obj.character}`;
+                let text = document.getElementById('character-text');
+                text.innerHTML = `${obj.text}`;
+                myModal.show();
+            }
+        }
+
+        
+    </script>
+</body>
+
+</html>
