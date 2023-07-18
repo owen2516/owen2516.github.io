@@ -66,7 +66,12 @@
         saveBtn.addEventListener("click",()=>{
             let text = inputText.value;
             let id = new Date().getTime();
-            console.log(text,id);
+
+            if (text == ''){
+                alert("不可空白!!!請重新輸入");
+                return;
+            }
+
             let obj = {
                 id : id,
                 text : text,
@@ -113,6 +118,12 @@
 
             let checked = checkBox.checked ? 'checked' : '';
             let text = textDom.value;
+
+            if (text == ''){
+                alert("不可空白!!!請重新輸入");
+                return;
+            }
+
             let obj = {
                 id : id,
                 text : text,
