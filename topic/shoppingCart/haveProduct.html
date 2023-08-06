@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        /* * {
+            outline: 2px solid red;
+        } */
+
+        .n-cart {
+            background: none;
+            border-bottom: 1px solid #d3d3d5;
+            margin-bottom: 0;
+            padding: 24px 0;
+            min-width: 1000px;
+        }
+
+        .graw {
+            width: 940px;
+        }
+
+        .cart-header {
+            position: relative;
+        }
+
+        .top-navs {
+            position: absolute;
+            top: -14px;
+            right: 10px;
+            font-size: 12px;
+            list-style: none;
+        }
+
+        .top-navs li:nth-of-type(n+2) {
+            border-left: 1px solid #d3d3d5;
+            margin-left: 10px;
+            padding-left: 10px;
+        }
+
+        .top-navs a {
+            color: #39393e;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        .top-navs a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-header h1 {
+            border-left: 1px solid #d3d3d5;
+            color: #39393e;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 32px;
+            padding-left: 24px;
+        }
+
+        .header-logo {
+            background-size: contain;
+            height: 44px;
+            margin-right: 36px;
+            vertical-align: middle;
+            width: 128px;
+        }
+
+        .shoppingProgress {
+            padding: 14px 0;
+            padding-left: 25px;
+        }
+
+        .circle {
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .connect-line {
+            width: 130px;
+            height: 1px;
+            background-color: #E5E5E6;
+        }
+
+        .bg-active {
+            background: #10567b;
+        }
+
+        .bg-passtive {
+            background: #E5E5E6;
+        }
+
+        .content-title {
+            font-size: 24px;
+        }
+
+        .btn-outline-secondary:hover {
+            background: #f7f7f8;
+            color: #39393e;
+        }
+
+        /* ------------------shopCartItems------------------- */
+
+        .shop-cart-card {
+            border: 1px solid #eeeeef;
+            border-radius: 3px;
+        }
+
+        .shop-cart-check {
+            border-bottom: 1px solid #eeeeef;
+        }
+
+        .item-title {
+            text-decoration: none;
+            color: #39393e;
+        }
+
+        .item-title:hover {
+            text-decoration: underline;
+        }
+
+        .item-note {
+            color: #66666a;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .shop-img {
+            width: 90px;
+            height: 90px;
+        }
+
+        .border-b {
+            border-bottom: 2px solid #eeeeef;
+        }
+
+        .extra-notes {
+            list-style: none;
+            color: #929295;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        select.form-select {
+            color: #39393e;
+            font-size: 13px;
+            resize: none;
+        }
+
+        .coupon-button {
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            color: #2e90b7;
+        }
+
+        .coupon-button_text {
+            vertical-align: bottom;
+        }
+
+        .cart-icon {
+            color: #2e90b7;
+        }
+
+        /* ------------- */
+
+        .shop-cart-frame {
+            height: fit-content;
+            top: 10px;
+        }
+
+        .frame-header {
+            background-color: #eeeeef;
+        }
+
+        .frame-notes {
+            color: #66666a;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .pinkoi-coupon {
+            color: #2e90b7;
+            font-size: 14px;
+        }
+
+        .total-pay {
+            box-sizing: border-box;
+            display: block;
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            background: #f16c5d;
+            border: 1px solid #f16c5d;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .total-pay:hover {
+            background: #f16c5d;
+            border: 1px solid #f16c5d;
+            opacity: 0.9;
+            color: #fff;
+        }
+
+        .scale0_7 {
+            transform: scale(0.7);
+        }
+
+        /* --------------tools------------------------ */
+
+        .reset-a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .reset-a:hover {
+            text-decoration: underline;
+        }
+
+        /* ----------------footer---------------- */
+
+        .cart-footer {
+            background: #f7f7f8;
+            bottom: 0;
+            left: 0;
+            font-size: 12px;
+            min-width: 1000px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+        }
+
+        @media  screen and (min-width:100%) {
+            .cart-footer {
+                position: sticky;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart-page">
+        <div class="n-cart">
+            <div class="cart-header graw mx-auto d-flex align-items-center">
+                <ul class="top-navs d-flex">
+                    <li>
+                        <a href="#" rel="noopener">慾望清單</a>
+                    </li>
+                    <li>
+                        <a href="#" rel="noopener">優惠券</a>
+                    </li>
+                    <li>
+                        <a href="#" rel="noopener">我的訊息</a>
+                    </li>
+                </ul>
+                <a class="header-logo" href="#">
+                    <svg class="w-100 h-100" height="24" viewBox="0 0 82 24" width="82"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M0 0h82v24H0z" />
+                            <path
+                                d="M36.019 5.4a5.95 5.95 0 0 1 5.95 5.95v6.639c0 .258-.21.468-.469.468h-2.038a.469.469 0 0 1-.468-.468V11.35a2.975 2.975 0 0 0-5.95 0v6.639c0 .258-.21.468-.47.468h-2.037a.469.469 0 0 1-.468-.468V5.36c0-.309.292-.533.59-.453l2.037.546c.205.055.347.24.347.452v.297A5.917 5.917 0 0 1 36.02 5.4zm15.872 5.21l7.048 7.048c.295.295.086.8-.331.8h-2.689a.937.937 0 0 1-.662-.275l-5.355-5.355v5.16c0 .26-.21.47-.469.47h-2.038a.469.469 0 0 1-.468-.47V.469c0-.307.292-.532.59-.452l2.038.546c.205.055.347.24.347.453v7.377l3.213-3.213a.937.937 0 0 1 .662-.274h2.915c.334 0 .501.403.265.64zm15.814 5.258a4.104 4.104 0 1 0 0-8.209 4.104 4.104 0 0 0 0 8.21zm0-11.137a7.033 7.033 0 1 1 0 14.065 7.033 7.033 0 0 1 0-14.065zm-57.972.071a6.827 6.827 0 0 1 6.778 6.778c.027 3.783-3.165 6.877-6.948 6.877H7.92a.469.469 0 0 1-.469-.468V15.89c0-.259.21-.468.469-.468h1.68c2.086 0 3.846-1.649 3.878-3.735a3.793 3.793 0 0 0-3.852-3.851c-2.085.031-3.734 1.792-3.734 3.878v6.574a6.817 6.817 0 0 1-2.744 5.471.944.944 0 0 1-1.038.067L.176 22.71c-.26-.15-.226-.538.058-.634 1.522-.518 2.623-2.018 2.623-3.788V11.75c0-3.782 3.094-6.975 6.876-6.948zm14.534.652c.205.055.347.24.347.453v12.082c0 .258-.21.468-.468.468h-2.038a.469.469 0 0 1-.469-.468V5.36c0-.309.292-.533.59-.453zm57.351 0c.205.055.348.24.348.453v12.082c0 .258-.21.468-.469.468H79.46a.469.469 0 0 1-.468-.468V5.36c0-.309.292-.533.59-.453z"
+                                fill="#003354" />
+                        </g>
+                    </svg>
+                </a>
+                <h1 class="m-0">購物車</h1>
+                <div class="shoppingProgress d-flex align-items-center">
+                    <div class="chooseDesigner d-flex align-items-center">
+                        <div class="circle rounded-circle bg-active">1</div>
+                        <div class="ms-2">選擇設計館</div>
+                    </div>
+                    <div class="connect-line mx-2"></div>
+                    <div class="chooseDesigner d-flex align-items-center">
+                        <div class="circle rounded-circle bg-passtive">2</div>
+                        <div class="ms-2">填寫地址與付款</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="n-cart-container graw mx-auto">
+            <div class="all-cart p-3 mt-3">
+                <input type="checkbox" name="" id="all-cart">
+                <label for="all-cart">選擇全部</label>
+            </div>
+            <div class="shop-cart-list">
+                <div class="d-flex">
+                    <div class="col-8">
+                        <div class="shop-cart-details shop-cart-card mb-3">
+                            <div class="shop-cart-check p-3 d-flex justify-content-between">
+                                <div>
+                                    <input type="checkbox" name="" id="all-cart">
+                                    <label for="all-cart">
+                                        Zolton Leather Accessories
+                                    </label>
+                                </div>
+
+                                <button type="button" class="btn-close scale0_7"></button>
+                            </div>
+                            <div class="p-3 shop-cart-items border-b d-flex">
+                                <a class="" href="">
+                                    <img class="shop-img" src="./images/10003.jpg" alt="">
+                                </a>
+                                <div class="shop-details d-flex">
+                                    <div class="item-details col-6 px-3">
+                                        <a class="item-title" href="" target="_blank" rel="">
+                                            【HOT】Viktor 真皮短錢包皮夾 零錢純黑 客製化刻字
+                                        </a>
+                                        <div class="item-note">情人節禮盒</div>
+                                    </div>
+                                    <div class="item-extras col-6 ps-3 d-flex justify-content-between">
+                                        <div class="item-quantity">
+                                            <div class=""><select class="form-select py-2">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10 +</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="fw-bold item-subtotal">NT$ 2,915</div>
+                                            <button type="button" class="btn-close scale0_7"></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shippig-select border-b p-3">
+                                <div class="g-spacing-mb-tiny">選擇收件地與運送方式</div>
+                                <div class="g-lazy-fadein g-spacing-mt-tiny">
+                                    <div class="my-2 col-6">
+                                        <select class="form-select py-2" name="" id="">
+                                            <option value="" disabled="">請選擇收件國家 / 地區</option>
+                                            <option value="TW">台灣</option>
+                                            <option value="JP">日本</option>
+                                            <option value="US">美國</option>
+                                            <option value="TW">台灣</option>
+                                        </select>
+                                    </div>
+                                    <div class="my-2 col-6">
+                                        <select class="form-select py-2" name="" id="">
+                                            <option value="" disabled="">請選擇運送方式</option>
+                                            <option value="">順豐速運 NT$ 105</option>
+                                        </select>
+                                    </div>
+                                    <ul class="extra-notes mb-0 ps-0">
+                                        <li class="s-info">通知出貨後約 1 - 2 天寄達 | 提供追蹤 |
+                                            外島地區目前台灣順豐不支援配送，請選擇其他配送物流，設計師有權取消誤選順豐之外島訂單。
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <a class="coupon-button" href="">
+                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="cart-icon"
+                                        style="fill: currentcolor;">
+                                        <path
+                                            d="M16.815 3.903c.513 0 .931.41.931.912v3.398a.915.915 0 0 1-.612.857l-.143.052c-.35.125-.482.451-.489.714-.008.267.108.603.453.75l.23.096a.91.91 0 0 1 .561.837v3.657a.923.923 0 0 1-.93.912H3.177a.923.923 0 0 1-.932-.912V4.816c0-.504.418-.913.932-.913h13.637Zm-5.256.7H3.18c-.129 0-.233.095-.233.212v3.38H7.38a.3.3 0 1 1 0 .6H2.946v2.4H7.38a.3.3 0 1 1 0 .6H2.946v3.381c0 .117.104.213.232.213h8.381V4.602Zm5.256 0H12.16v10.786h4.656c.128 0 .232-.096.232-.213V11.52a.214.214 0 0 0-.136-.192l-.228-.097c-.553-.233-.899-.788-.88-1.413.017-.622.39-1.153.95-1.354l.145-.052a.216.216 0 0 0 .15-.198V4.815c0-.117-.105-.213-.233-.213Z"
+                                            fill="#39393E"></path>
+                                    </svg>
+                                    <span class="ms-2 coupon-button_text">套用設計館優惠</span>
+                                    <svg class="ms-3" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" width="14"
+                                        height="14" class="cart-icon" style="fill: currentcolor;">
+                                        <g clip-path="url(#act-arrow-right_svg__a)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M5.191 12 4 10.761 7.617 7 4 3.24 5.191 2 10 7l-4.809 5Z"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="act-arrow-right_svg__a">
+                                                <path d="M0 0h14v14H0z"></path>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="shop-cart-details shop-cart-card mb-3">
+                            <div class="shop-cart-check p-3 d-flex justify-content-between">
+                                <div>
+                                    <input type="checkbox" name="" id="all-cart">
+                                    <label for="all-cart">
+                                        Zolton Leather Accessories
+                                    </label>
+                                </div>
+
+                                <button type="button" class="btn-close scale0_7"></button>
+                            </div>
+                            <div class="p-3 shop-cart-items border-b d-flex">
+                                <a class="" href="">
+                                    <img class="shop-img" src="./images/10003.jpg" alt="">
+                                </a>
+                                <div class="shop-details d-flex">
+                                    <div class="item-details col-6 px-3">
+                                        <a class="item-title" href="" target="_blank" rel="">
+                                            【HOT】Viktor 真皮短錢包皮夾 零錢純黑 客製化刻字
+                                        </a>
+                                        <div class="item-note">情人節禮盒</div>
+                                    </div>
+                                    <div class="item-extras col-6 ps-3 d-flex justify-content-between">
+                                        <div class="item-quantity">
+                                            <div class=""><select class="form-select py-2">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10 +</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="fw-bold item-subtotal">NT$ 2,915</div>
+                                            <button type="button" class="btn-close scale0_7"></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shippig-select border-b p-3">
+                                <div class="g-spacing-mb-tiny">選擇收件地與運送方式</div>
+                                <div class="g-lazy-fadein g-spacing-mt-tiny">
+                                    <div class="my-2 col-6">
+                                        <select class="form-select py-2" name="" id="">
+                                            <option value="" disabled="">請選擇收件國家 / 地區</option>
+                                            <option value="TW">台灣</option>
+                                            <option value="JP">日本</option>
+                                            <option value="US">美國</option>
+                                            <option value="TW">台灣</option>
+                                        </select>
+                                    </div>
+                                    <div class="my-2 col-6">
+                                        <select class="form-select py-2" name="" id="">
+                                            <option value="" disabled="">請選擇運送方式</option>
+                                            <option value="">順豐速運 NT$ 105</option>
+                                        </select>
+                                    </div>
+                                    <ul class="extra-notes mb-0 ps-0">
+                                        <li class="s-info">通知出貨後約 1 - 2 天寄達 | 提供追蹤 |
+                                            外島地區目前台灣順豐不支援配送，請選擇其他配送物流，設計師有權取消誤選順豐之外島訂單。
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <a class="coupon-button" href="">
+                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="cart-icon"
+                                        style="fill: currentcolor;">
+                                        <path
+                                            d="M16.815 3.903c.513 0 .931.41.931.912v3.398a.915.915 0 0 1-.612.857l-.143.052c-.35.125-.482.451-.489.714-.008.267.108.603.453.75l.23.096a.91.91 0 0 1 .561.837v3.657a.923.923 0 0 1-.93.912H3.177a.923.923 0 0 1-.932-.912V4.816c0-.504.418-.913.932-.913h13.637Zm-5.256.7H3.18c-.129 0-.233.095-.233.212v3.38H7.38a.3.3 0 1 1 0 .6H2.946v2.4H7.38a.3.3 0 1 1 0 .6H2.946v3.381c0 .117.104.213.232.213h8.381V4.602Zm5.256 0H12.16v10.786h4.656c.128 0 .232-.096.232-.213V11.52a.214.214 0 0 0-.136-.192l-.228-.097c-.553-.233-.899-.788-.88-1.413.017-.622.39-1.153.95-1.354l.145-.052a.216.216 0 0 0 .15-.198V4.815c0-.117-.105-.213-.233-.213Z"
+                                            fill="#39393E"></path>
+                                    </svg>
+                                    <span class="ms-2 coupon-button_text">套用設計館優惠</span>
+                                    <svg class="ms-3" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" width="14"
+                                        height="14" class="cart-icon" style="fill: currentcolor;">
+                                        <g clip-path="url(#act-arrow-right_svg__a)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M5.191 12 4 10.761 7.617 7 4 3.24 5.191 2 10 7l-4.809 5Z"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="act-arrow-right_svg__a">
+                                                <path d="M0 0h14v14H0z"></path>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-cart-frame shop-cart-card col-4 mx-2 sticky-top">
+                        <div class="frame-header p-3">訂單摘要</div>
+                        <div class="frame-body p-3">
+                            <div class="d-flex justify-content-between py-2">
+                                <div class="">商品總計</div>
+                                <div class="fw-bold">NT$ 2,915</div>
+                            </div>
+                            <div class="d-flex justify-content-between py-2">
+                                <div class="">運費總計</div>
+                                <div class="fw-bold">NT$ 105</div>
+                            </div>
+                            <div>
+                                <div class="frame-notes">
+                                    實際運費金額以購物車結算或是到貨時收取的金額為準。
+                                </div>
+                            </div>
+                            <div class="py-4 border-b">
+                                <a class="reset-a pinkoi-coupon">使用
+                                    Pinkoi 購物優惠及禮物卡</a>
+                            </div>
+                            <div class="summary-total py-3 d-flex justify-content-between align-items-center">
+                                <div class="">結帳總金額 :</div>
+                                <div class="fw-bold fs-5">NT$ 3,020</div>
+                            </div>
+                            <div class="mt-2">
+                                <div role="button" class="my-2 btn total-pay"><span>前往結帳</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer class="cart-footer fixed-bottom">
+        <div class="footer-container mx-auto d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+                <a class="" href="/">
+                    <img width="82px" height="24px" alt="Pinkoi Logo"
+                        src="//cdn04.pinkoi.com/pinkoi.site/general/logo/pinkoi_logo_2019.svg">
+                </a>
+                <p class="ms-3 mt-1 m-0 align-text-bottom">Design the way you are.</p>
+            </div>
+            <div class="footer-right">
+                <p class="m-0">
+                    食品業者登錄字號：A-153674659-00000-3 <br>
+                    © 2023 Pinkoi. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

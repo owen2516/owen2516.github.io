@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        /* * {
+            outline: 2px solid red;
+        } */
+
+        .n-cart {
+            background: none;
+            border-bottom: 1px solid #d3d3d5;
+            margin-bottom: 0;
+            padding: 24px 0;
+            min-width: 1000px;
+        }
+
+        .graw {
+            width: 940px;
+        }
+
+        .cart-header {
+            position: relative;
+        }
+
+        .top-navs {
+            position: absolute;
+            top: -14px;
+            right: 10px;
+            font-size: 12px;
+            list-style: none;
+        }
+
+        .top-navs li:nth-of-type(n+2) {
+            border-left: 1px solid #d3d3d5;
+            margin-left: 10px;
+            padding-left: 10px;
+        }
+
+        .top-navs a {
+            color: #39393e;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        .top-navs a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-header h1 {
+            border-left: 1px solid #d3d3d5;
+            color: #39393e;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 32px;
+            padding-left: 24px;
+        }
+
+        .header-logo {
+            background-size: contain;
+            height: 44px;
+            margin-right: 36px;
+            vertical-align: middle;
+            width: 128px;
+        }
+
+        .shoppingProgress {
+            padding: 14px 0;
+            padding-left: 25px;
+        }
+
+        .circle {
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .connect-line {
+            width: 130px;
+            height: 1px;
+            background-color: #E5E5E6;
+        }
+
+        .bg-active {
+            background: #10567b;
+        }
+
+        .bg-passtive {
+            background: #E5E5E6;
+        }
+
+        .content-title {
+            font-size: 24px;
+        }
+
+        .btn-outline-secondary:hover {
+            background: #f7f7f8;
+            color: #39393e;
+        }
+
+        /* ----------------footer---------------- */
+
+        .cart-footer {
+            background: #f7f7f8;
+            bottom: 0;
+            left: 0;
+            font-size: 12px;            
+            min-width: 1000px;
+            padding: 20px 0;            
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart-page">
+        <div class="n-cart">
+            <div class="cart-header graw mx-auto d-flex align-items-center">
+                <ul class="top-navs d-flex">
+                    <li>
+                        <a href="#" rel="noopener">慾望清單</a>
+                    </li>
+                    <li>
+                        <a href="#" rel="noopener">優惠券</a>
+                    </li>
+                    <li>
+                        <a href="#" rel="noopener">我的訊息</a>
+                    </li>
+                </ul>
+                <a class="header-logo" href="#">
+                    <svg class="w-100 h-100" height="24" viewBox="0 0 82 24" width="82"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M0 0h82v24H0z" />
+                            <path
+                                d="M36.019 5.4a5.95 5.95 0 0 1 5.95 5.95v6.639c0 .258-.21.468-.469.468h-2.038a.469.469 0 0 1-.468-.468V11.35a2.975 2.975 0 0 0-5.95 0v6.639c0 .258-.21.468-.47.468h-2.037a.469.469 0 0 1-.468-.468V5.36c0-.309.292-.533.59-.453l2.037.546c.205.055.347.24.347.452v.297A5.917 5.917 0 0 1 36.02 5.4zm15.872 5.21l7.048 7.048c.295.295.086.8-.331.8h-2.689a.937.937 0 0 1-.662-.275l-5.355-5.355v5.16c0 .26-.21.47-.469.47h-2.038a.469.469 0 0 1-.468-.47V.469c0-.307.292-.532.59-.452l2.038.546c.205.055.347.24.347.453v7.377l3.213-3.213a.937.937 0 0 1 .662-.274h2.915c.334 0 .501.403.265.64zm15.814 5.258a4.104 4.104 0 1 0 0-8.209 4.104 4.104 0 0 0 0 8.21zm0-11.137a7.033 7.033 0 1 1 0 14.065 7.033 7.033 0 0 1 0-14.065zm-57.972.071a6.827 6.827 0 0 1 6.778 6.778c.027 3.783-3.165 6.877-6.948 6.877H7.92a.469.469 0 0 1-.469-.468V15.89c0-.259.21-.468.469-.468h1.68c2.086 0 3.846-1.649 3.878-3.735a3.793 3.793 0 0 0-3.852-3.851c-2.085.031-3.734 1.792-3.734 3.878v6.574a6.817 6.817 0 0 1-2.744 5.471.944.944 0 0 1-1.038.067L.176 22.71c-.26-.15-.226-.538.058-.634 1.522-.518 2.623-2.018 2.623-3.788V11.75c0-3.782 3.094-6.975 6.876-6.948zm14.534.652c.205.055.347.24.347.453v12.082c0 .258-.21.468-.468.468h-2.038a.469.469 0 0 1-.469-.468V5.36c0-.309.292-.533.59-.453zm57.351 0c.205.055.348.24.348.453v12.082c0 .258-.21.468-.469.468H79.46a.469.469 0 0 1-.468-.468V5.36c0-.309.292-.533.59-.453z"
+                                fill="#003354" />
+                        </g>
+                    </svg>
+                </a>
+                <h1 class="m-0">購物車</h1>
+                <!-- <div class="shoppingProgress d-flex align-items-center">
+                    <div class="chooseDesigner d-flex align-items-center">
+                        <div class="circle rounded-circle bg-active">1</div>
+                        <div class="ms-2">選擇設計館</div>
+                    </div>
+                    <div class="connect-line mx-2"></div>
+                    <div class="chooseDesigner d-flex align-items-center">
+                        <div class="circle rounded-circle bg-passtive">2</div>
+                        <div class="ms-2">填寫地址與付款</div>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+        <div class="n-cart-empty graw mx-auto">
+            <div class="row justify-content-center">
+                <div class="cover-img col-6 p-5">
+                    <img class="w-100" src="./images/empty.png" alt="">
+                </div>
+                <div class="content col-6 d-flex flex-column align-items-start justify-content-center">
+                    <div class="content-title">你的購物車中沒有商品</div>
+                    <div class="d-flex justify-content-between my-3">
+                        <div role="button" class="btn btn-outline-secondary me-3 py-2" tabindex="0"><span>回首頁逛逛</span>
+                        </div>
+                        <div role="button" class="btn btn-outline-secondary py-2" tabindex="0"><span>我的慾望清單</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="cart-footer fixed-bottom">
+        <div class="footer-container mx-auto d-flex justify-content-between align-items-center">
+            <div class="d-flex">
+                <a class="" href="/">
+                    <img width="82px" height="24px" alt="Pinkoi Logo"
+                        src="//cdn04.pinkoi.com/pinkoi.site/general/logo/pinkoi_logo_2019.svg">
+                </a>
+                <p class="ms-3 mt-1 m-0 align-text-bottom">Design the way you are.</p>
+            </div>
+            <div class="footer-right">
+                <p class="m-0">
+                        食品業者登錄字號：A-153674659-00000-3 <br>
+                    © 2023 Pinkoi. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
