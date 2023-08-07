@@ -17,11 +17,11 @@
             border-bottom: 1px solid #d3d3d5;
             margin-bottom: 0;
             padding: 24px 0;
-            min-width: 1000px;
+            width: 100%;
         }
 
         .graw {
-            width: 940px;
+            max-width: 940px;
         }
 
         .cart-header {
@@ -170,9 +170,13 @@
 
         /* ------------- */
 
-        .shop-cart-frame {
-            height: fit-content;
-            top: 10px;
+
+
+        @media screen and (min-width: 1024px) {
+            .shop-cart-frame {
+                height: fit-content;
+                top: 10px;
+            }
         }
 
         .frame-header {
@@ -239,20 +243,14 @@
         .footer-container {
             max-width: 1200px;
         }
-
-        @media  screen and (min-width:100%) {
-            .cart-footer {
-                position: sticky;
-            }
-        }
     </style>
 </head>
 
 <body>
     <div class="cart-page">
         <div class="n-cart">
-            <div class="cart-header graw mx-auto d-flex align-items-center">
-                <ul class="top-navs d-flex">
+            <div class="cart-header graw mx-auto d-block d-lg-flex align-items-center">
+                <ul class="top-navs d-none d-lg-flex">
                     <li>
                         <a href="#" rel="noopener">慾望清單</a>
                     </li>
@@ -263,7 +261,7 @@
                         <a href="#" rel="noopener">我的訊息</a>
                     </li>
                 </ul>
-                <a class="header-logo" href="#">
+                <a class="header-logo mx-auto d-block mx-lg-2 pe-lg-3" href="#">
                     <svg class="w-100 h-100" height="24" viewBox="0 0 82 24" width="82"
                         xmlns="http://www.w3.org/2000/svg">
                         <g fill="none" fill-rule="evenodd">
@@ -274,8 +272,8 @@
                         </g>
                     </svg>
                 </a>
-                <h1 class="m-0">購物車</h1>
-                <div class="shoppingProgress d-flex align-items-center">
+                <h1 class="mb-0 d-none d-lg-block p-3">購物車</h1>
+                <div class="shoppingProgress d-flex align-items-center justify-content-center mx-auto ms-lg-3">
                     <div class="chooseDesigner d-flex align-items-center">
                         <div class="circle rounded-circle bg-active">1</div>
                         <div class="ms-2">選擇設計館</div>
@@ -296,7 +294,7 @@
             </div>
             <div class="shop-cart-list">
                 <div class="d-flex">
-                    <div class="col-8">
+                    <div class="col-12 col-lg-8">
                         <div class="shop-cart-details shop-cart-card mb-3">
                             <div class="shop-cart-check p-3 d-flex justify-content-between">
                                 <div>
@@ -312,14 +310,14 @@
                                 <a class="" href="">
                                     <img class="shop-img" src="./images/10003.jpg" alt="">
                                 </a>
-                                <div class="shop-details d-flex">
-                                    <div class="item-details col-6 px-3">
+                                <div class="shop-details row w-100">
+                                    <div class="item-details col-12 col-lg-6 px-3">
                                         <a class="item-title" href="" target="_blank" rel="">
                                             【HOT】Viktor 真皮短錢包皮夾 零錢純黑 客製化刻字
                                         </a>
                                         <div class="item-note">情人節禮盒</div>
                                     </div>
-                                    <div class="item-extras col-6 ps-3 d-flex justify-content-between">
+                                    <div class="item-extras col-12 col-lg-6 ps-3 d-flex justify-content-between">
                                         <div class="item-quantity">
                                             <div class=""><select class="form-select py-2">
                                                     <option value="1">1</option>
@@ -335,7 +333,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-between">
                                             <div class="fw-bold item-subtotal">NT$ 2,915</div>
                                             <button type="button" class="btn-close scale0_7"></button>
                                         </div>
@@ -407,14 +405,14 @@
                                 <a class="" href="">
                                     <img class="shop-img" src="./images/10003.jpg" alt="">
                                 </a>
-                                <div class="shop-details d-flex">
-                                    <div class="item-details col-6 px-3">
+                                <div class="shop-details row w-100">
+                                    <div class="item-details col-12 col-lg-6 px-3">
                                         <a class="item-title" href="" target="_blank" rel="">
                                             【HOT】Viktor 真皮短錢包皮夾 零錢純黑 客製化刻字
                                         </a>
                                         <div class="item-note">情人節禮盒</div>
                                     </div>
-                                    <div class="item-extras col-6 ps-3 d-flex justify-content-between">
+                                    <div class="item-extras col-12 col-lg-6 ps-3 d-flex justify-content-between">
                                         <div class="item-quantity">
                                             <div class=""><select class="form-select py-2">
                                                     <option value="1">1</option>
@@ -430,7 +428,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="d-flex">
+                                        <div class="d-flex justify-content-between">
                                             <div class="fw-bold item-subtotal">NT$ 2,915</div>
                                             <button type="button" class="btn-close scale0_7"></button>
                                         </div>
@@ -489,23 +487,23 @@
                         </div>
                     </div>
 
-                    <div class="shop-cart-frame shop-cart-card col-4 mx-2 sticky-top">
+                    <div class="shop-cart-frame shop-cart-card col-lg-4 mx-2 sticky-lg-top fixed-bottom">
                         <div class="frame-header p-3">訂單摘要</div>
-                        <div class="frame-body p-3">
-                            <div class="d-flex justify-content-between py-2">
+                        <div class="frame-body p-3 d-flex d-lg-block bg-white justify-content-between">
+                            <div class="d-none d-lg-flex justify-content-between py-2">
                                 <div class="">商品總計</div>
                                 <div class="fw-bold">NT$ 2,915</div>
                             </div>
-                            <div class="d-flex justify-content-between py-2">
+                            <div class="d-none d-lg-flex justify-content-between py-2">
                                 <div class="">運費總計</div>
                                 <div class="fw-bold">NT$ 105</div>
                             </div>
-                            <div>
+                            <div class="d-none d-lg-block">
                                 <div class="frame-notes">
                                     實際運費金額以購物車結算或是到貨時收取的金額為準。
                                 </div>
                             </div>
-                            <div class="py-4 border-b">
+                            <div class="d-none d-lg-block py-4 border-b">
                                 <a class="reset-a pinkoi-coupon">使用
                                     Pinkoi 購物優惠及禮物卡</a>
                             </div>
@@ -524,7 +522,7 @@
             </div>
         </div>
     </div>
-    <footer class="cart-footer fixed-bottom">
+    <footer class="cart-footer fixed-bottom d-none d-lg-block">
         <div class="footer-container mx-auto d-flex justify-content-between align-items-center">
             <div class="d-flex">
                 <a class="" href="/">
