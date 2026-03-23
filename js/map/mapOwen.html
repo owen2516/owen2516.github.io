@@ -118,14 +118,13 @@
         const queryResultDom = document.querySelector('#queryResult'); //更新查詢
 
 
-        window, onload = function () {
+        window.onload = function () {
 
             try {
 
                 //取得使用者座標
                 geoFindMe()
                     .then(res => {
-                        console.log(res);
 
                         //沒必要賦值 已經是了
                         latitude = res[0];
@@ -224,7 +223,7 @@
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-
+                    
                     youBikeData = data;
 
                     //渲染地圖
@@ -255,11 +254,10 @@
 
             //取得YouBikeData 並加上 marker 及 popup
             youBikeData.forEach(item => {
-                let lat = item.lat;
-                let long = item.lng;
-                //console.log(lat,long);
+                let lat = item.latitude;
+                let long = item.longitude;
 
-                if (item.sbi > 10) {
+                if (item.available_rent_bikes > 10) {
                     var greenIcon = L.icon({
                         iconUrl: './images/green.png',
 
@@ -270,7 +268,7 @@
                         popupAnchor: [0, -12] // point from which the popup should open relative to the iconAnchor
                     });
                     var marker = L.marker([lat, long],{icon:greenIcon});
-                } else if (item.sbi > 0){
+                } else if (item.available_rent_bikes > 0){
                     var marker = L.marker([lat, long]);
                 } else {
                     var redIcon = L.icon({
@@ -291,8 +289,8 @@
                     `
                         <h5>${item.sna}</h5>
                         <p>地址:${item.ar}</p>
-                        <p>可借數量: ${item.sbi}</p>
-                        <p>可還數量: ${item.bemp}</p>
+                        <p>可借數量: ${item.available_rent_bikes}</p>
+                        <p>可還數量: ${item.available_return_bikes}</p>
                     `
                 );
                 markers.addLayer(marker);
@@ -341,10 +339,10 @@
                     str += `<div class="col-12 d-flex">
                                 <div class="col-3 p-1">${item.sna}</div>
                                 <div class="col-3 p-1">${item.ar}</div>
-                                <div class="col-2 p-1 text-center">${item.sbi}</div>
-                                <div class="col-2 p-1 text-center">${item.bemp}</div>
+                                <div class="col-2 p-1 text-center">${item.available_rent_bikes}</div>
+                                <div class="col-2 p-1 text-center">${item.available_return_bikes}</div>
                                 <div class="col-2 p-1 text-end">
-                                    <button type="button" class="btn btn-outline-dark" onclick="goMap(${item.lat},${item.lng})">地圖</button>
+                                    <button type="button" class="btn btn-outline-dark" onclick="goMap(${item.latitude},${item.longitude})">地圖</button>
                                 </div>
                             </div>`;
                 })

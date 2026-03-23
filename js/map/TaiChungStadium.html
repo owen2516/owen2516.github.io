@@ -118,7 +118,7 @@
         const queryResultDom = document.querySelector('#queryResult'); //更新查詢
 
 
-        window, onload = function () {
+        window.onload = function () {
 
             try {
 
@@ -226,6 +226,7 @@
                 .then(data => {
 
                     stadiumData = data;
+                    console.log(stadiumData)
 
                     //渲染地圖
                     renderMap();
